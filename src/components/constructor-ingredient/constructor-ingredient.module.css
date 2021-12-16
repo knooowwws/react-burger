@@ -1,0 +1,10 @@
+.li{
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+.drag {
+    margin-right: 13px;
+    margin-left: 21px;
+}

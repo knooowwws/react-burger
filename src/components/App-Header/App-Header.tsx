@@ -1,22 +1,22 @@
 import React from 'react';
-import {BurgerIcon, Logo, MenuIcon, ProfileIcon} from '@ya.praktikum/react-developer-burger-ui-components'
+import {BurgerIcon, ListIcon, Logo, ProfileIcon} from '@ya.praktikum/react-developer-burger-ui-components'
 import styles from './app-header.module.css';
 
 function AppHeader() {
     return (
         <header>
-            <nav className={styles.nav}>
+            <nav className={`pt-4 pb-4 ${styles.nav}`}>
                 <div className={styles.box}>
                     <div className={`pl-5 pr-5 ${styles.boxElement}`}>
                         <BurgerIcon type="primary"/>
                         <a className='text text_type_main-default ml-2'>Конструктор</a>
                     </div>
                     <div className={`pl-5 pr-5 ${styles.boxElement}`}>
-                        <BurgerIcon type="primary"/>
+                        <ListIcon type="primary"/>
                         <a className='text text_type_main-default text_color_inactive ml-2'>Лента заказов</a>
                     </div>
                 </div>
-                <div>
+                <div className={styles.logo}>
                     <Logo/>
                 </div>
                 <div className={`pl-5 pr-5 ${styles.boxElement}`}>

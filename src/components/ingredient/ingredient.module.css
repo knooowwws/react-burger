@@ -1,0 +1,22 @@
+.li {
+    position: relative;
+    height: 208px;
+    max-width: 260px;
+    margin: 0 24px 32px 0;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    word-wrap: break-word;
+
+}
+
+.ul:nth-child(even) {
+    margin-right: 0;
+}
+
+.box {
+    display: flex;
+    gap: 9px;
+    margin: 8px auto;
+}

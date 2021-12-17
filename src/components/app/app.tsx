@@ -1,6 +1,6 @@
 import React from 'react';
 import app from './app.module.css';
-import AppHeader from "../app-header/app-header";
+import AppHeader from "../appHeader/appHeader";
 import {data} from '../../utils/constants'
 import MainSection from '../main-section/main'
 

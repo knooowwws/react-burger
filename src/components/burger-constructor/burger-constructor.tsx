@@ -28,7 +28,7 @@ function BurgerConstructor(props) {
                                     thumbnail={data[0].image}/>
             </div>
 
-            <div className={style.foot}>
+            <div className={`mt-10 ${style.foot}`}>
                 <div className='mr-10'>
                     <span className='mr-2 text text_type_digits-medium'>610</span>
                     <CurrencyIcon type='primary' />

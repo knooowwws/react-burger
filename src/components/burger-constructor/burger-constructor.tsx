@@ -7,21 +7,24 @@ import style from './burger-constructor.module.css'
 
 // @ts-ignore
 function BurgerConstructor(props) {
-    const list = data.slice()
-    list.splice(0, 1)
+    const _list = data.slice()
+    _list.splice(0, 1)
+    const list = _list.slice()
+    list.splice(-1, 1)
+
     return (
         <section className={`pt-25 ${style.construct}`}>
 
             <div className={`pb-40 ${style.el}`}>
 
-                <ConstructorElement type='top' isLocked={true} text={`${data[0].name} + '(top)'`} price={data[0].price}
+                <ConstructorElement type='top' isLocked={true} text={`${data[0].name} (верх)`} price={data[0].price}
                                     thumbnail={data[0].image}/>
                 <ul className={`${style.ul} pr-2`}>
                     {list.map(i => (
                         <ConstructorIngredient key={i._id} data={i}/>
                     ))}
                 </ul>
-                <ConstructorElement type='bottom' isLocked={true} text={`${data[0].name} + '(bot)'`} price={data[0].price}
+                <ConstructorElement type='bottom' isLocked={true} text={`${data[0].name} (низ)`} price={data[0].price}
                                     thumbnail={data[0].image}/>
             </div>
 

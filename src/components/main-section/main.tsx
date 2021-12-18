@@ -1,10 +1,10 @@
 import React, { memo } from 'react';
 import BurgerIngredients from '../burger-ingredients/burger-ingredients';
-// import BurgerConstructor from '../burger-constructor/burger-constructor';
 import PropTypes from 'prop-types';
 import { dataPropTypes } from '../../utils/constants';
 import main from './main.module.css';
 import BurgerConstructor from '../burger-constructor/burger-constructor';
+
 
 // @ts-ignore
 function MainSection(props) {

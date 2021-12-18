@@ -1,9 +1,11 @@
 import React, { memo } from 'react';
+import PropTypes from 'prop-types';
 import {
     Counter,
     CurrencyIcon,
 } from '@ya.praktikum/react-developer-burger-ui-components';
 import ingredient from './ingredient.module.css';
+import { dataPropTypes } from '../../utils/constants';
 
 // @ts-ignore
 function Ingredient(props) {
@@ -19,5 +21,10 @@ function Ingredient(props) {
         </li>
     )
 }
+
+// @ts-ignore
+Ingredient.propTypes = {
+    card: PropTypes.object
+};
 
 export default memo(Ingredient);

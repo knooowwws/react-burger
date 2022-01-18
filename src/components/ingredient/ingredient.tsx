@@ -9,8 +9,13 @@ import { dataPropTypes } from '../../utils/constants';
 
 // @ts-ignore
 function Ingredient(props) {
+    const handle = () => {
+        props.onCardClick(props.card)
+        props.openIngredientDetails()
+    }
+
     return(
-        <li className={`mb-10 ${ingredient.li}`}>
+        <li onClick={handle} className={`mb-10 ${ingredient.li}`}>
             <img src={props.card.image} alt={props.card.name}/>
             <Counter count={1} size='default' />
             <div className={ingredient.box}>
@@ -22,9 +27,9 @@ function Ingredient(props) {
     )
 }
 
+export default memo(Ingredient);
+
 // @ts-ignore
 Ingredient.propTypes = {
     card: PropTypes.object
 };
-
-export default memo(Ingredient);

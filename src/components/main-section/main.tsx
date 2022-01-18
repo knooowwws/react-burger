@@ -8,10 +8,11 @@ import BurgerConstructor from '../burger-constructor/burger-constructor';
 
 // @ts-ignore
 function MainSection(props) {
+    // @ts-ignore
     return (
         <main className={main.main}>
-            <BurgerIngredients bun={props.bun} sauce={props.sauce} main={props.main}  />
-            <BurgerConstructor />
+            <BurgerIngredients openIngredientDetails={props.ingredientDetails} onCardClick={props.onCardClick} bun={props.bun} sauce={props.sauce} main={props.main}  />
+            <BurgerConstructor openOrderDetails={props.orderDetails}/>
         </main>
     )
 }
@@ -19,8 +20,11 @@ function MainSection(props) {
 export default memo(MainSection)
 
 // @ts-ignore
-BurgerIngredients.propTypes = {
+MainSection.propTypes = {
     bun: PropTypes.arrayOf(dataPropTypes.isRequired).isRequired,
     sauce: PropTypes.arrayOf(dataPropTypes.isRequired).isRequired,
     main: PropTypes.arrayOf(dataPropTypes.isRequired).isRequired,
+    onCardClick: PropTypes.func.isRequired,
+    ingredientDetails: PropTypes.func.isRequired,
+    orderDetails: PropTypes.func.isRequired,
 };

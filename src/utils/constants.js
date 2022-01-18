@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
 
+export const indexModal = document.getElementById('modal-root')
+
 export const data = [
     {
         "_id":"60666c42cc7b410027a1a9b1",
@@ -228,4 +230,3 @@ export const dataPropTypes = PropTypes.shape({
     _id: PropTypes.string.isRequired,
 });
 //
-// export const BASE_URL = 'https://norma.nomoreparties.space/api';

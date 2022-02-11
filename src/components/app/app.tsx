@@ -9,12 +9,11 @@ import Order from "../order/order";
 import IngredientDetails from "../ingredient-details/ingredient-details";
 
 function App() {
-    Api()
 
     // Состояние
     const [ingredients, setIngredients] = React.useState([])
-    const [orderDetails, setOrderDetails] = React.useState(false);
     const [ingredientDetails, setIngredientDetails] = React.useState(false);
+    const [orderDetails, setOrderDetails] = React.useState(false);
     const [selectCard, setSelectCard] = React.useState(null)
 
     //Коллбэки

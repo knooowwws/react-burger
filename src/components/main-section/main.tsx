@@ -2,24 +2,22 @@ import React, { memo } from 'react';
 import BurgerIngredients from '../burger-ingredients/burger-ingredients';
 import PropTypes from 'prop-types';
 import { dataPropTypes } from '../../utils/constants';
-import main from './main.module.css';
+import style from './main.module.css';
 import BurgerConstructor from '../burger-constructor/burger-constructor';
 
 
 // @ts-ignore
-function MainSection(props) {
-    // @ts-ignore
+function MainSection({bun, ingredientDetails, main, onCardClick, orderDetails, sauce}) {
     return (
-        <main className={main.main}>
-            <BurgerIngredients openIngredientDetails={props.ingredientDetails} onCardClick={props.onCardClick} bun={props.bun} sauce={props.sauce} main={props.main}  />
-            <BurgerConstructor openOrderDetails={props.orderDetails}/>
+        <main className={style.main}>
+            <BurgerIngredients openIngredientDetails={ingredientDetails} onCardClick={onCardClick} bun={bun} sauce={sauce} main={main}  />
+            <BurgerConstructor openOrderDetails={orderDetails}/>
         </main>
     )
 }
 
 export default memo(MainSection)
 
-// @ts-ignore
 MainSection.propTypes = {
     bun: PropTypes.arrayOf(dataPropTypes.isRequired).isRequired,
     sauce: PropTypes.arrayOf(dataPropTypes.isRequired).isRequired,

@@ -7,10 +7,10 @@ import BurgerConstructor from '../burger-constructor/burger-constructor';
 
 
 // @ts-ignore
-function MainSection({bun, ingredientDetails, main, onCardClick, orderDetails, sauce}) {
+function MainSection({bun, ingredient, main, onCardClick, orderDetails, sauce}) {
     return (
         <main className={style.main}>
-            <BurgerIngredients openIngredientDetails={ingredientDetails} onCardClick={onCardClick} bun={bun} sauce={sauce} main={main}  />
+            <BurgerIngredients openIngredientDetails={ingredient} onCardClick={onCardClick} bun={bun} sauce={sauce} main={main}  />
             <BurgerConstructor openOrderDetails={orderDetails}/>
         </main>
     )
@@ -23,6 +23,6 @@ MainSection.propTypes = {
     sauce: PropTypes.arrayOf(dataPropTypes.isRequired).isRequired,
     main: PropTypes.arrayOf(dataPropTypes.isRequired).isRequired,
     onCardClick: PropTypes.func.isRequired,
-    ingredientDetails: PropTypes.func.isRequired,
+    ingredient: PropTypes.func.isRequired,
     orderDetails: PropTypes.func.isRequired,
 };

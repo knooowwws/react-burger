@@ -8,11 +8,11 @@ const getResponse = (res) => {
     return Promise.reject(`Ошибка: ${res.status}`);
 }
 
-const Api = () => {
+const fetchIngredients = () => {
     return fetch(url)
         .then(r => {
             return getResponse(r)
         })
 }
 
-export default Api;
+export default fetchIngredients;

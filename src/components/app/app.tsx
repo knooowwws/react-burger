@@ -2,10 +2,9 @@ import React, {memo} from 'react';
 import app from './app.module.css';
 import AppHeader from "../appHeader/appHeader";
 // import {data} from '../../utils/constants'
-import Api from '../../utils/api'
+import fetchIngredients from '../../utils/fetchIngredients'
 import MainSection from '../main-section/main'
-import Modal from '../modal/modal'
-import Order from "../order/order";
+import OrderDetails from "../order-datails/order-details";
 import IngredientDetails from "../ingredient-details/ingredient-details";
 
 function App() {
@@ -22,11 +21,11 @@ function App() {
         setOrderDetails(false)
     }, [])
 
-    const handleOrderDetails = React.useCallback(() => {
+    const handleOrderClick = React.useCallback(() => {
         setOrderDetails(true)
     }, [])
 
-    const handleIngredientDetails = React.useCallback(() => {
+    const handleIngredientClick = React.useCallback(() => {
         setIngredientDetails(true)
     }, [])
 
@@ -36,7 +35,7 @@ function App() {
 
     //Эффекты
     React.useEffect(() => {
-        Api()
+        fetchIngredients()
             .then(r => {
                 return setIngredients(r.data)
             })
@@ -65,35 +64,24 @@ function App() {
 
     //Прочие функции
     // @ts-ignore
-    function closePopupEsc(evt) {
-        if (evt.key === 'Escape') {
-            closePopups();
-        }
-    }
 
     // @ts-ignore
-    function closePopupClickOnOverlay(evt) {
-        if (evt.target.matches('.popup')) {
-            closePopups();
-        }
-    }
+
 
 
     return (
-        <div className={app.app} onKeyDown={closePopupEsc} onClick={closePopupClickOnOverlay} tabIndex={0} >
+        <div className={app.app} tabIndex={0} >
             <AppHeader/>
             <MainSection
                 bun={bun} main={main} sauce={sauce}
-                orderDetails={handleOrderDetails} ingredientDetails={handleIngredientDetails}
+                orderDetails={handleOrderClick} ingredient={handleIngredientClick}
                 onCardClick={handleSelectCard} />
-            <Modal title={''} closePopup={closePopups} isOpen={orderDetails}>
-                <Order/>
-            </Modal>
-            <Modal title={'Добавить ингредиенты'} closePopup={closePopups} isOpen={ingredientDetails}>
-                <IngredientDetails card={selectCard}/>
-            </Modal>
+
+            <IngredientDetails card={selectCard} onclose={closePopups} isOpen={ingredientDetails} />
+            <OrderDetails isOpen={orderDetails} onclose={closePopups} />
+
         </div>
     );
 }
 
-export default App;
+export default memo(App);

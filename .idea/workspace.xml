@@ -2,12 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7e820f6c-ee3c-4564-9852-673d84bace63" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/app/app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/app/app.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/appHeader/appHeader.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/appHeader/appHeader.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/appHeader/appHeader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/appHeader/appHeader.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ingredient-details/ingredient-details.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ingredient-details/ingredient-details.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/main-section/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/main-section/main.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/modal/modal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modal/modal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/order/order.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/order-datails/order-details.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/order/orders.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/order-datails/orders.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/overlay/overlay.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modalOverlay/modalOverlay.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/overlay/overlay.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modalOverlay/modalOverlay.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/fetchIngredients.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +99,7 @@
       <workItem from="1640897682824" duration="599000" />
       <workItem from="1641411636022" duration="31983000" />
       <workItem from="1644184883984" duration="599000" />
-      <workItem from="1644189667195" duration="5036000" />
+      <workItem from="1644189667195" duration="11484000" />
     </task>
     <servers />
   </component>

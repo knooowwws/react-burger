@@ -5,10 +5,10 @@ import styles from "./burger-ingredients.module.css";
 import {dataPropTypes} from '../../utils/constants';
 import IngredientLists from '../ingredientLists/ingredientLists'
 
-// @ts-ignore
+
 function BurgerIngredients(props) {
     const [tab, setTab] = useState('buns');
-// @ts-ignore
+
     return (
         <section className={`mt-10 pl-5 ${styles.foundation}`}>
             <h1 className={`text text_type_main-large mb-5`}>

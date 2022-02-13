@@ -4,11 +4,11 @@ import style from './ingredient-details.module.css';
 import PropTypes from "prop-types";
 import Modal from "../modal/modal";
 
-// @ts-ignore
+
 function IngredientDetails(props) {
     return (
         props.card && (
-            <Modal title={'Детали ингридиента'} onclose={props.onclose} isOpen={props.isOpen}>
+            <Modal title={'Детали ингридиента'} onClose={props.onClose} isOpen={props.isOpen}>
                 <section className={style.section}>
                     <img
                         src={props.card.image_large}
@@ -58,6 +58,6 @@ export default React.memo(IngredientDetails);
 
 IngredientDetails.propTypes = {
     card: dataPropTypes,
-    onclose: PropTypes.func.isRequired,
+    onClose: PropTypes.func.isRequired,
     isOpen: PropTypes.bool.isRequired
 };

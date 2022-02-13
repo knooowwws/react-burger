@@ -6,7 +6,7 @@ import style from './main.module.css';
 import BurgerConstructor from '../burger-constructor/burger-constructor';
 
 
-// @ts-ignore
+
 function MainSection({bun, ingredient, main, onCardClick, orderDetails, sauce}) {
     return (
         <main className={style.main}>

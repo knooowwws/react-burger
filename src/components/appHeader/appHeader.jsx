@@ -4,7 +4,7 @@ import styles from './appHeader.module.css';
 
 function AppHeader() {
     return (
-        <header>
+        <header className={styles.header}>
             <nav className={`pt-4 pb-4 ${styles.nav}`}>
                 <div className={styles.box}>
                     <div className={`pl-5 pr-5 ${styles.boxElement}`}>

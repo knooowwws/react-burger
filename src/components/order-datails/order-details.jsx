@@ -8,7 +8,7 @@ import PropTypes from "prop-types";
 function OrderDetails(props) {
     return (
         props.isOpen && (
-            <Modal title={''} onclose={props.onclose} isOpen={props.isOpen}>
+            <Modal title={''} onClose={props.onClose} isOpen={props.isOpen}>
                 <section className={`${style.section} pr-15 pb-15 pl-15 `}>
                     <h3 className={`${style.number} mt-4 text text_type_digits-large `}>
                         777
@@ -23,7 +23,7 @@ function OrderDetails(props) {
 }
 
 OrderDetails.propTypes = {
-    onclose: PropTypes.func.isRequired,
+    onClose: PropTypes.func.isRequired,
     isOpen: PropTypes.bool.isRequired,
 };
 

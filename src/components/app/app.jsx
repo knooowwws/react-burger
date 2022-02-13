@@ -1,7 +1,6 @@
 import React, {memo} from 'react';
 import app from './app.module.css';
 import AppHeader from "../appHeader/appHeader";
-// import {data} from '../../utils/constants'
 import fetchIngredients from '../../utils/fetchIngredients'
 import MainSection from '../main-section/main'
 import OrderDetails from "../order-datails/order-details";
@@ -44,28 +43,28 @@ function App() {
             })
     }, [])
 
-    // @ts-ignore
+
     const bun = React.useMemo(
         () => ingredients.filter((i) => i["type"] === 'bun'),
         [ingredients]
     );
 
-    // @ts-ignore
+
     const main = React.useMemo(
         () => ingredients.filter((i) => i["type"] === 'main'),
         [ingredients]
     );
 
-    // @ts-ignore
+
     const sauce = React.useMemo(
         () => ingredients.filter((i) => i["type"] === 'sauce'),
         [ingredients]
     );
 
     //Прочие функции
-    // @ts-ignore
 
-    // @ts-ignore
+
+
 
 
 
@@ -77,8 +76,8 @@ function App() {
                 orderDetails={handleOrderClick} ingredient={handleIngredientClick}
                 onCardClick={handleSelectCard} />
 
-            <IngredientDetails card={selectCard} onclose={closePopups} isOpen={ingredientDetails} />
-            <OrderDetails isOpen={orderDetails} onclose={closePopups} />
+            <IngredientDetails card={selectCard} onClose={closePopups} isOpen={ingredientDetails} />
+            <OrderDetails isOpen={orderDetails} onClose={closePopups} />
 
         </div>
     );

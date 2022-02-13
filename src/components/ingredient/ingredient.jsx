@@ -7,7 +7,7 @@ import {
 import ingredient from './ingredient.module.css';
 import { dataPropTypes } from '../../utils/constants';
 
-// @ts-ignore
+
 function Ingredient(props) {
     const handle = () => {
         props.onCardClick(props.card)
@@ -29,7 +29,7 @@ function Ingredient(props) {
 
 export default memo(Ingredient);
 
-// @ts-ignore
+
 Ingredient.propTypes = {
     card: PropTypes.object
 };

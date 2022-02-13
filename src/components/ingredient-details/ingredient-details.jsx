@@ -7,8 +7,7 @@ import Modal from "../modal/modal";
 
 function IngredientDetails(props) {
     return (
-        props.isOpen && (
-            <Modal title={'Детали ингридиента'} onClose={props.onClose} isOpen={props.isOpen}>
+        props.card && (
                 <section className={style.section}>
                     <img
                         src={props.card.image_large}
@@ -49,7 +48,6 @@ function IngredientDetails(props) {
                         </li>
                     </ul>
                 </section>
-            </Modal>
         )
     );
 }
@@ -58,6 +56,4 @@ export default React.memo(IngredientDetails);
 
 IngredientDetails.propTypes = {
     card: dataPropTypes,
-    onClose: PropTypes.func.isRequired,
-    isOpen: PropTypes.bool.isRequired
 };

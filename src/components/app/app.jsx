@@ -5,6 +5,7 @@ import fetchIngredients from '../../utils/fetchIngredients'
 import MainSection from '../main-section/main'
 import OrderDetails from "../order-datails/order-details";
 import IngredientDetails from "../ingredient-details/ingredient-details";
+import Modal from "../modal/modal";
 
 function App() {
 
@@ -64,20 +65,19 @@ function App() {
     //Прочие функции
 
 
-
-
-
-
     return (
-        <div className={app.app} tabIndex={0} >
+        <div className={app.app} tabIndex={0}>
             <AppHeader/>
             <MainSection
                 bun={bun} main={main} sauce={sauce}
                 orderDetails={handleOrderClick} ingredient={handleIngredientClick}
-                onCardClick={handleSelectCard} />
-
-            <IngredientDetails card={selectCard} onClose={closePopups} isOpen={ingredientDetails} />
-            <OrderDetails isOpen={orderDetails} onClose={closePopups} />
+                onCardClick={handleSelectCard}/>
+            <Modal title={'Детали ингридиента'} onClose={closePopups} isOpen={ingredientDetails}>
+                <IngredientDetails card={selectCard}/>
+            </Modal>
+            <Modal title={''} onClose={closePopups} isOpen={orderDetails}>
+                <OrderDetails/>
+            </Modal>
 
         </div>
     );

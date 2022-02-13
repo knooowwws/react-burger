@@ -3,8 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="7e820f6c-ee3c-4564-9852-673d84bace63" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/app/app.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/app/app.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/appHeader/appHeader.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/appHeader/appHeader.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/ingredient-details/ingredient-details.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ingredient-details/ingredient-details.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/modal/modal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modal/modal.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/modalOverlay/modalOverlay.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modalOverlay/modalOverlay.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/order-datails/order-details.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/order-datails/order-details.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +96,7 @@
       <workItem from="1640897682824" duration="599000" />
       <workItem from="1641411636022" duration="31983000" />
       <workItem from="1644184883984" duration="599000" />
-      <workItem from="1644189667195" duration="18828000" />
+      <workItem from="1644189667195" duration="20245000" />
     </task>
     <servers />
   </component>

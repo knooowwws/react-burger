@@ -22,24 +22,25 @@ function Modal(props) {
     }, [props.onClose])
 
     return ReactDOM.createPortal(
-        <>
-            <ModalOverlay {...props}/>
-            <div className={`${style.modal} pt-10 pl-10 pb-15 pr-10`}>
-                <h2 className={`text text_type_main-large ${style.title}`}>
-                    {props.title}
-                </h2>
+        props.isOpen && (
+            <>
+                <ModalOverlay {...props}/>
+                <div className={`${style.modal} pt-10 pl-10 pb-15 pr-10`}>
+                    <h2 className={`text text_type_main-large ${style.title}`}>
+                        {props.title}
+                    </h2>
 
-                <div onClick={props.onClose} className={style.close}>
-                    <CloseIcon type={"primary"}/>
+                    <div onClick={props.onClose} className={style.close}>
+                        <CloseIcon type={"primary"}/>
+                    </div>
+                    {props.children}
                 </div>
-                {props.children}
-            </div>
-        </>,
+            </>),
         indexModal
     )
 }
 
-export default Modal
+export default React.memo(Modal)
 
 Modal.propTypes = {
     title: PropTypes.string.isRequired,

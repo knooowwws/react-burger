@@ -5,10 +5,8 @@ import Modal from "../modal/modal";
 import PropTypes from "prop-types";
 
 // @ts-ignore
-function OrderDetails(props) {
+function OrderDetails() {
     return (
-        props.isOpen && (
-            <Modal title={''} onClose={props.onClose} isOpen={props.isOpen}>
                 <section className={`${style.section} pr-15 pb-15 pl-15 `}>
                     <h3 className={`${style.number} mt-4 text text_type_digits-large `}>
                         777
@@ -18,13 +16,8 @@ function OrderDetails(props) {
                     <p className='mb-2 text text_type_main-default'>Ваш заказ начали готовить</p>
                     <span className={`${style.spanColor} text text_type_main-default `}>Дождитесь готовности на орбитальной станции</span>
                 </section>
-            </Modal>)
     );
 }
 
-OrderDetails.propTypes = {
-    onClose: PropTypes.func.isRequired,
-    isOpen: PropTypes.bool.isRequired,
-};
 
 export default OrderDetails;

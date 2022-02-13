@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import ModalOverlay from '../modalOverlay/modalOverlay';
-import { CloseIcon } from '@ya.praktikum/react-developer-burger-ui-components';
+import {CloseIcon} from '@ya.praktikum/react-developer-burger-ui-components';
 import style from './modal.module.css';
 import {indexModal} from "../../utils/constants";
 import React from "react";
@@ -20,9 +20,10 @@ function Modal(props) {
 
         return () => document.removeEventListener('keydown', closePopupWithEsc)
     }, [props.onClose])
-    
+
     return ReactDOM.createPortal(
-        <ModalOverlay {...props}>
+        <>
+            <ModalOverlay {...props}/>
             <div className={`${style.modal} pt-10 pl-10 pb-15 pr-10`}>
                 <h2 className={`text text_type_main-large ${style.title}`}>
                     {props.title}
@@ -33,7 +34,7 @@ function Modal(props) {
                 </div>
                 {props.children}
             </div>
-        </ModalOverlay>,
+        </>,
         indexModal
     )
 }

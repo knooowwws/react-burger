@@ -7,7 +7,7 @@ import Modal from "../modal/modal";
 
 function IngredientDetails(props) {
     return (
-        props.card && (
+        props.isOpen && (
             <Modal title={'Детали ингридиента'} onClose={props.onClose} isOpen={props.isOpen}>
                 <section className={style.section}>
                     <img

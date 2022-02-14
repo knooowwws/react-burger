@@ -72,12 +72,16 @@ function App() {
                 bun={bun} main={main} sauce={sauce}
                 orderDetails={handleOrderClick} ingredient={handleIngredientClick}
                 onCardClick={handleSelectCard}/>
-            <Modal title={'Детали ингридиента'} onClose={closePopups} isOpen={ingredientDetails}>
-                <IngredientDetails card={selectCard}/>
-            </Modal>
-            <Modal title={''} onClose={closePopups} isOpen={orderDetails}>
-                <OrderDetails/>
-            </Modal>
+            {ingredientDetails && (
+                <Modal title={'Детали ингридиента'} onClose={closePopups} isOpen={ingredientDetails}>
+                    <IngredientDetails card={selectCard}/>
+                </Modal>
+            )}
+            {orderDetails && (
+                <Modal title={''} onClose={closePopups} isOpen={orderDetails}>
+                    <OrderDetails/>
+                </Modal>
+            )}
 
         </div>
     );

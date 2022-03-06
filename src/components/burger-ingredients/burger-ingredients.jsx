@@ -2,10 +2,10 @@ import React, {memo, useState} from 'react';
 import PropTypes from "prop-types"
 import {Tab} from '@ya.praktikum/react-developer-burger-ui-components'
 import styles from "./burger-ingredients.module.css";
-import { dataPropTypes } from '../../utils/constants';
+import {dataPropTypes} from '../../utils/constants';
 import IngredientLists from '../ingredientLists/ingredientLists'
 
-// @ts-ignore
+
 function BurgerIngredients(props) {
     const [tab, setTab] = useState('buns');
 
@@ -39,12 +39,18 @@ function BurgerIngredients(props) {
             </div>
             <div className={` ${styles.ingredients}`}>
                 <IngredientLists
+                    onCardClick={props.onCardClick}
+                    openIngredientDetails={props.openIngredientDetails}
                     title="Булки"
                     ingredient={props.bun}
                 />
                 <IngredientLists
+                    onCardClick={props.onCardClick}
+                    openIngredientDetails={props.openIngredientDetails}
                     title="Соусы" ingredient={props.sauce}/>
                 <IngredientLists
+                    onCardClick={props.onCardClick}
+                    openIngredientDetails={props.openIngredientDetails}
                     title="Начинки"
                     ingredient={props.main}
                 />
@@ -59,5 +65,7 @@ BurgerIngredients.propTypes = {
     bun: PropTypes.arrayOf(dataPropTypes.isRequired).isRequired,
     sauce: PropTypes.arrayOf(dataPropTypes.isRequired).isRequired,
     main: PropTypes.arrayOf(dataPropTypes.isRequired).isRequired,
+    onCardClick: PropTypes.func.isRequired,
+    openIngredientDetails: PropTypes.func.isRequired,
 };
 

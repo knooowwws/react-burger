@@ -33,7 +33,7 @@ function BurgerConstructor(props) {
                     <span className='mr-2 text text_type_digits-medium'>610</span>
                     <CurrencyIcon type='primary' />
                 </div>
-                <Button type='primary' size='large'>
+                <Button onClick={props.openOrderDetails} type='primary' size='large'>
                     Оформить заказ
                 </Button>
             </div>
@@ -42,3 +42,7 @@ function BurgerConstructor(props) {
 }
 
 export default BurgerConstructor;
+
+BurgerConstructor.propTypes = {
+    openOrderDetails: PropTypes.func.isRequired,
+};

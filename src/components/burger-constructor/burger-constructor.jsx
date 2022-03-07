@@ -4,13 +4,18 @@ import {Button, ConstructorElement, CurrencyIcon} from '@ya.praktikum/react-deve
 import {data} from '../../utils/constants'
 import ConstructorIngredient from '../constructor-ingredient/constructor-ingredient'
 import style from './burger-constructor.module.css'
+import {ProductContext} from "../../services/productContext";
 
 // @ts-ignore
 function BurgerConstructor(props) {
-    const _list = data.slice()
-    _list.splice(0, 1)
-    const list = _list.slice()
-    list.splice(-1, 1)
+    const contextData = React.useContext(ProductContext);
+
+    const buns = contextData.find((i) => i.type === "bun");
+    const noBun = contextData.filter((i) => i.type !== "bun");
+
+    const priceBun = buns ? buns.price * 2 : 0; //проверяем есть ли данные с сервера в props
+    const priceNoBun = noBun ? noBun.reduce((sum, current) => sum + current.price, 0) : 0;
+    const priceTotal = priceBun + priceNoBun
 
     return (
         <section className={`pt-25 ${style.construct}`}>
@@ -20,7 +25,7 @@ function BurgerConstructor(props) {
                 <ConstructorElement type='top' isLocked={true} text={`${data[0].name} (верх)`} price={data[0].price}
                                     thumbnail={data[0].image}/>
                 <ul className={`${style.ul} pr-2`}>
-                    {list.map(i => (
+                    {noBun.map(i => (
                         <ConstructorIngredient key={i._id} data={i}/>
                     ))}
                 </ul>
@@ -30,8 +35,8 @@ function BurgerConstructor(props) {
 
             <div className={`mt-10 ${style.foot}`}>
                 <div className='mr-10'>
-                    <span className='mr-2 text text_type_digits-medium'>610</span>
-                    <CurrencyIcon type='primary' />
+                    <span className='mr-2 text text_type_digits-medium'>{priceTotal}</span>
+                    <CurrencyIcon type='primary'/>
                 </div>
                 <Button onClick={props.openOrderDetails} type='primary' size='large'>
                     Оформить заказ

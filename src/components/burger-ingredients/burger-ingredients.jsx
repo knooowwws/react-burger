@@ -1,13 +1,35 @@
 import React, {memo, useState} from 'react';
-import PropTypes from "prop-types"
+import PropTypes from "prop-types";
 import {Tab} from '@ya.praktikum/react-developer-burger-ui-components'
 import styles from "./burger-ingredients.module.css";
 import {dataPropTypes} from '../../utils/constants';
 import IngredientLists from '../ingredientLists/ingredientLists'
+import { ProductContext } from "../../services/productContext";
 
 
 function BurgerIngredients(props) {
     const [tab, setTab] = useState('buns');
+
+    const contextData = React.useContext(ProductContext);
+
+    const bun = React.useMemo(
+        () => contextData.filter((i) => i["type"] === 'bun'),
+        [contextData]
+    );
+
+
+    const main = React.useMemo(
+        () => contextData.filter((i) => i["type"] === 'main'),
+        [contextData]
+    );
+
+
+    const sauce = React.useMemo(
+        () => contextData.filter((i) => i["type"] === 'sauce'),
+        [contextData]
+    );
+
+
 
     return (
         <section className={`mt-10 pl-5 ${styles.foundation}`}>
@@ -42,17 +64,17 @@ function BurgerIngredients(props) {
                     onCardClick={props.onCardClick}
                     openIngredientDetails={props.openIngredientDetails}
                     title="Булки"
-                    ingredient={props.bun}
+                    ingredient={bun}
                 />
                 <IngredientLists
                     onCardClick={props.onCardClick}
                     openIngredientDetails={props.openIngredientDetails}
-                    title="Соусы" ingredient={props.sauce}/>
+                    title="Соусы" ingredient={sauce}/>
                 <IngredientLists
                     onCardClick={props.onCardClick}
                     openIngredientDetails={props.openIngredientDetails}
                     title="Начинки"
-                    ingredient={props.main}
+                    ingredient={main}
                 />
             </div>
         </section>
@@ -62,9 +84,6 @@ function BurgerIngredients(props) {
 export default memo(BurgerIngredients);
 
 BurgerIngredients.propTypes = {
-    bun: PropTypes.arrayOf(dataPropTypes.isRequired).isRequired,
-    sauce: PropTypes.arrayOf(dataPropTypes.isRequired).isRequired,
-    main: PropTypes.arrayOf(dataPropTypes.isRequired).isRequired,
     onCardClick: PropTypes.func.isRequired,
     openIngredientDetails: PropTypes.func.isRequired,
 };

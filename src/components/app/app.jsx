@@ -82,7 +82,7 @@ function App() {
                     orderNum: serverOrder,
                 });
             } else {
-                console.log('ОШИБКА!!!')
+                throw new Error('Ответ сети был не ok.');
             }
         } catch (error) {
             setOrderInfo({orderNum: null, creatingOrder: false, errorMessage: error});

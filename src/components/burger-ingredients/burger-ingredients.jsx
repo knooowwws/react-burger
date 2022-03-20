@@ -1,34 +1,59 @@
 import React, {memo, useState} from 'react';
-import PropTypes from "prop-types";
+import {useSelector} from "react-redux";
 import {Tab} from '@ya.praktikum/react-developer-burger-ui-components'
 import styles from "./burger-ingredients.module.css";
-import {dataPropTypes} from '../../utils/constants';
 import IngredientLists from '../ingredientLists/ingredientLists'
-import { ProductContext } from "../../services/productContext";
 
 
 function BurgerIngredients(props) {
-    const [tab, setTab] = useState('buns');
 
-    const contextData = React.useContext(ProductContext);
+    const ingredientsData = useSelector((store) => store.ingredients.allIngredients)
 
-    const bun = React.useMemo(
-        () => contextData.filter((i) => i["type"] === 'bun'),
-        [contextData]
+    const buns = React.useMemo(
+        () => ingredientsData.filter((i) => i["type"] === 'bun'),
+        [ingredientsData]
     );
 
 
     const main = React.useMemo(
-        () => contextData.filter((i) => i["type"] === 'main'),
-        [contextData]
+        () => ingredientsData.filter((i) => i["type"] === 'main'),
+        [ingredientsData]
     );
 
 
     const sauce = React.useMemo(
-        () => contextData.filter((i) => i["type"] === 'sauce'),
-        [contextData]
+        () => ingredientsData.filter((i) => i["type"] === 'sauce'),
+        [ingredientsData]
     );
 
+    //scroll
+    const [tab, setTab] = useState('buns');
+
+    const bunRef = React.createRef(null);
+    const sauceRef = React.createRef(null);
+    const mainRef = React.createRef(null);
+
+    const handleTabClick = React.useCallback(({tab, ref}) => () => {
+            setTab(tab);
+            ref.current.scrollIntoView({behavior: "smooth"});
+        },
+        [setTab]
+    );
+
+    const ingredientListScroll = (evt) => {
+        const scrollContainer = evt.target;
+        const scrollPosition = scrollContainer.scrollTop;
+        const sauceTabPosition = sauceRef.current.offsetTop;
+        const mainTabPosition = mainRef.current.offsetTop;
+        const scrollSetup = 400;
+        if (scrollPosition + scrollSetup <= sauceTabPosition) {
+            setTab("buns");
+        } else if (scrollPosition + scrollSetup <= mainTabPosition) {
+            setTab("sauce");
+        } else {
+            setTab("main");
+        }
+    };
 
 
     return (
@@ -40,41 +65,48 @@ function BurgerIngredients(props) {
                 <Tab
                     value="buns"
                     active={tab === 'buns'}
-                    onClick={setTab}
+                    onClick={() => handleTabClick({
+                        tab: tab,
+                        ref: bunRef,
+                    })}
                 >
                     Булки
                 </Tab>
                 <Tab
                     value="sauce"
                     active={tab === 'sauce'}
-                    onClick={setTab}
+                    onClick={() => handleTabClick({
+                        tab: tab,
+                        ref: sauceRef,
+                    })}
                 >
                     Соусы
                 </Tab>
                 <Tab
                     value="main"
                     active={tab === 'main'}
-                    onClick={setTab}
+                    onClick={() => handleTabClick({
+                        tab: tab,
+                        ref: mainRef,
+                    })}
                 >
                     Начинки
                 </Tab>
             </div>
-            <div className={` ${styles.ingredients}`}>
+            <div className={` ${styles.ingredients}`} onScroll={ingredientListScroll}>
                 <IngredientLists
-                    onCardClick={props.onCardClick}
-                    openIngredientDetails={props.openIngredientDetails}
                     title="Булки"
-                    ingredient={bun}
+                    ingredient={buns}
+                    ref={bunRef}
                 />
                 <IngredientLists
-                    onCardClick={props.onCardClick}
-                    openIngredientDetails={props.openIngredientDetails}
-                    title="Соусы" ingredient={sauce}/>
+                    title="Соусы"
+                    ingredient={sauce}
+                    ref={sauceRef}/>
                 <IngredientLists
-                    onCardClick={props.onCardClick}
-                    openIngredientDetails={props.openIngredientDetails}
                     title="Начинки"
                     ingredient={main}
+                    ref={mainRef}
                 />
             </div>
         </section>
@@ -83,8 +115,8 @@ function BurgerIngredients(props) {
 
 export default memo(BurgerIngredients);
 
-BurgerIngredients.propTypes = {
-    onCardClick: PropTypes.func.isRequired,
-    openIngredientDetails: PropTypes.func.isRequired,
-};
+// BurgerIngredients.propTypes = {
+//     onCardClick: PropTypes.func.isRequired,
+//     openIngredientDetails: PropTypes.func.isRequired,
+// };
 

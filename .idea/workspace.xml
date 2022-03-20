@@ -3,8 +3,22 @@
   <component name="ChangeListManager">
     <list default="true" id="7e820f6c-ee3c-4564-9852-673d84bace63" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/app/app.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/app/app.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/burger-constructor/burger-constructor.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/burger-constructor/burger-constructor.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/burger-constructor/burger-constructor.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/burger-constructor/burger-constructor.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/burger-ingredients/burger-ingredients.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/burger-ingredients/burger-ingredients.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/constructor-ingredient/constructor-ingredient.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/constructor-ingredient/constructor-ingredient.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/constructor-ingredient/constructor-ingredient.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/constructor-ingredient/constructor-ingredient.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ingredient-details/ingredient-details.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ingredient-details/ingredient-details.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ingredient/ingredient.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ingredient/ingredient.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ingredient/ingredient.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ingredient/ingredient.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ingredientLists/ingredientLists.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ingredientLists/ingredientLists.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/main-section/main.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/main-section/main.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/order-datails/order-details.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/order-datails/order-details.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/orderContext.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/productContext.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/fetchIngredients.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/fetchIngredients.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +115,7 @@
       <workItem from="1646408861286" duration="18676000" />
       <workItem from="1646728785868" duration="1273000" />
       <workItem from="1646812474646" duration="2360000" />
-      <workItem from="1647106565081" duration="10312000" />
+      <workItem from="1647106565081" duration="43210000" />
     </task>
     <servers />
   </component>

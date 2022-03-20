@@ -1,53 +1,108 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {Button, ConstructorElement, CurrencyIcon} from '@ya.praktikum/react-developer-burger-ui-components';
-import {data} from '../../utils/constants'
 import ConstructorIngredient from '../constructor-ingredient/constructor-ingredient'
 import style from './burger-constructor.module.css'
-import {ProductContext} from "../../services/productContext";
+import {useDispatch, useSelector} from "react-redux";
+import {useDrop} from "react-dnd";
+import {
+    ADD_INGREDIENT_CONSTRUCTOR,
+    DRAG_CONSTRUCTOR_INGREDIENT,
+    INCREASE_INGREDIENTS,
+    ORDER_DETAILS_OPEN
+} from "../../services/actions";
+import {getOrder} from "../../services/actions/order";
 
-// @ts-ignore
 function BurgerConstructor(props) {
-    const contextData = React.useContext(ProductContext);
+    const {bun, ingredient} = useSelector((store) => store.ingredients.ingredientsConstructor)
 
-    const buns = contextData.find((i) => i.type === "bun");
-    const noBun = contextData.filter((i) => i.type !== "bun");
+    const dispatch = useDispatch()
+    const price = bun && bun.price * 2 + ingredient.reduce((previousValue, currentValue) => previousValue + currentValue.price, 0)
 
-    const priceBun = buns ? buns.price * 2 : 0; //проверяем есть ли данные с сервера в props
-    const priceNoBun = noBun ? noBun.reduce((sum, current) => sum + current.price, 0) : 0;
-    const priceTotal = priceBun + priceNoBun
+    const [{canDrop, isOver}, drop] = useDrop(() => ({
+        accept: 'ingredient-menu',
+        drop: (item) => {
+            const itemWithId = {...item, uniqueId: Math.random()};
+            dispatch({
+                type: ADD_INGREDIENT_CONSTRUCTOR,
+                item: itemWithId,
+            });
+            dispatch({
+                type: INCREASE_INGREDIENTS,
+                id: itemWithId._id,
+                typeForCounter: itemWithId.type,
+            });
+        },
+        collect: (monitor) => ({
+            isOver: monitor.isOver(),
+            canDrop: monitor.canDrop(),
+        }),
+    }))
+
+    const isActive = canDrop && isOver;
+
+    const backgroundColor = (isActive && 'rgba(45, 45, 55, 1)') || (canDrop && 'rgba(30, 30, 55, 1)');
+
+    const handleClose = React.useCallback(
+        (dragIndex, hoverIndex) => {
+            dispatch({
+                type: DRAG_CONSTRUCTOR_INGREDIENT,
+                dragIndex: dragIndex,
+                hoverIndex: hoverIndex,
+            });
+        },
+        [dispatch]
+    );
+
+    function handleClick() {
+        const id = ingredient
+            .map((item) => {
+                return item._id;
+            })
+            .concat(bun._id);
+        dispatch({type: ORDER_DETAILS_OPEN});
+        dispatch(getOrder(id));
+    }
 
     return (
         <section className={`pt-25 ${style.construct}`}>
 
-            <div className={`pb-40 ${style.el}`}>
-
-                <ConstructorElement type='top' isLocked={true} text={`${data[0].name} (верх)`} price={data[0].price}
-                                    thumbnail={data[0].image}/>
+            <div style={{backgroundColor}} ref={drop} className={`pb-40 ${style.el}`}>
+                {bun && (
+                    <ConstructorElement type='top' isLocked={true} text={`${bun.name} (верх)`} price={bun.price}
+                                        thumbnail={bun.image}/>)
+                }
                 <ul className={`${style.ul} pr-2`}>
-                    {noBun.map(i => (
-                        <ConstructorIngredient key={i._id} data={i}/>
+                    {ingredient.map((i, index) => (
+                        <ConstructorIngredient
+                            draggable={true}
+                            handleClose={handleClose}
+                            id={i._id}
+                            data={i}
+                            key={i.uniqueId}
+                            index={index}
+                        />
                     ))}
                 </ul>
-                <ConstructorElement type='bottom' isLocked={true} text={`${data[0].name} (низ)`} price={data[0].price}
-                                    thumbnail={data[0].image}/>
+                {bun && (
+                    <ConstructorElement type='bottom' isLocked={true} text={`${bun.name} (низ)`} price={bun.price}
+                                        thumbnail={bun.image}/>)
+                }
             </div>
 
-            <div className={`mt-10 ${style.foot}`}>
-                <div className='mr-10'>
-                    <span className='mr-2 text text_type_digits-medium'>{priceTotal}</span>
-                    <CurrencyIcon type='primary'/>
+            {bun && (
+                <div className={`mt-10 ${style.foot}`}>
+                    <div className='mr-10'>
+                        <span className='mr-2 text text_type_digits-medium'>{price}</span>
+                        <CurrencyIcon type='primary'/>
+                    </div>
+                    <Button onClick={handleClick} type='primary' size='large'>
+                        Оформить заказ
+                    </Button>
                 </div>
-                <Button onClick={props.openOrderDetails} type='primary' size='large'>
-                    Оформить заказ
-                </Button>
-            </div>
+                )
+            }
         </section>
     )
 }
 
 export default BurgerConstructor;
-
-BurgerConstructor.propTypes = {
-    openOrderDetails: PropTypes.func.isRequired,
-};

@@ -1,7 +1,7 @@
 import {
-  GET_ITEMS_REQUEST,
-  GET_ITEMS_SUCCESS,
-  GET_ITEMS_ERROR,
+  GET_DATA_REQUEST,
+  GET_DATA_SUCCESS,
+  GET_DATA_ERROR,
   GET_VIEWED_INGREDIENT,
 } from './actions-ingredients-type';
 import fetchIngredients from "../../utils/fetchIngredients";
@@ -18,24 +18,24 @@ export function getViewedIngredient(card) {
 export function getItems() {
   return function (dispatch) {
     dispatch({
-      type: GET_ITEMS_REQUEST,
+      type: GET_DATA_REQUEST,
     });
     fetchIngredients()
       .then((res) => {
         if (res && res.success) {
           dispatch({
-            type: GET_ITEMS_SUCCESS,
+            type: GET_DATA_SUCCESS,
             items: res.data,
           });
         } else {
           dispatch({
-            type: GET_ITEMS_ERROR,
+            type: GET_DATA_ERROR,
           });
         }
       })
       .catch(() =>
         dispatch({
-          type: GET_ITEMS_ERROR,
+          type: GET_DATA_ERROR,
         })
       );
   };

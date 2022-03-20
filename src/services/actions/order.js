@@ -22,7 +22,7 @@ const getOrderOfNumber = (ingredients) => {
 };
 
 export function getOrder(listId) {
-  return function (dispatch) {
+  return async function (dispatch) {
     dispatch({
       type: GET_ORDER_REQUEST,
     });

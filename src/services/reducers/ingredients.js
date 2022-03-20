@@ -1,7 +1,7 @@
 import {
-  GET_ITEMS_REQUEST,
-  GET_ITEMS_SUCCESS,
-  GET_ITEMS_ERROR,
+  GET_DATA_REQUEST,
+  GET_DATA_SUCCESS,
+  GET_DATA_ERROR,
   GET_VIEWED_INGREDIENT,
   DEL_VIEWED_INGREDIENT,
   ADD_INGREDIENT_CONSTRUCTOR,
@@ -28,13 +28,13 @@ const initialIngredientState = {
 
 export const ingredientReducer = (state = initialIngredientState, action) => {
   switch (action.type) {
-    case GET_ITEMS_REQUEST: {
+    case GET_DATA_REQUEST: {
       return {
         ...state,
         itemsRequest: true,
       };
     }
-    case GET_ITEMS_SUCCESS: {
+    case GET_DATA_SUCCESS: {
       return {
         ...state,
         itemsFailed: false,
@@ -42,7 +42,7 @@ export const ingredientReducer = (state = initialIngredientState, action) => {
         itemsRequest: false,
       };
     }
-    case GET_ITEMS_ERROR: {
+    case GET_DATA_ERROR: {
       return { ...state, itemsFailed: true, itemsRequest: false };
     }
 

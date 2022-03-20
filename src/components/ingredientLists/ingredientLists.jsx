@@ -1,6 +1,5 @@
 import React from 'react';
 import Ingredient from '../ingredient/ingredient';
-// import { dataPropTypes } from '../../utils/constants';
 import style from './ingredient-list.module.css'
 import PropTypes from "prop-types";
 

@@ -3,9 +3,10 @@ import {useSelector} from "react-redux";
 import {Tab} from '@ya.praktikum/react-developer-burger-ui-components'
 import styles from "./burger-ingredients.module.css";
 import IngredientLists from '../ingredientLists/ingredientLists'
+import {scrollSetup} from "../../utils/constants";
 
 
-function BurgerIngredients(props) {
+function BurgerIngredients() {
 
     const ingredientsData = useSelector((store) => store.ingredients.allIngredients)
 
@@ -45,7 +46,6 @@ function BurgerIngredients(props) {
         const scrollPosition = scrollContainer.scrollTop;
         const sauceTabPosition = sauceRef.current.offsetTop;
         const mainTabPosition = mainRef.current.offsetTop;
-        const scrollSetup = 400;
         if (scrollPosition + scrollSetup <= sauceTabPosition) {
             setTab("buns");
         } else if (scrollPosition + scrollSetup <= mainTabPosition) {

@@ -77,7 +77,11 @@ function ConstructorIngredient({data, handleClose, id, index}) {
 }
 
 ConstructorIngredient.propTypes = {
-    data: PropTypes.object
+    data: PropTypes.object,
+    handleClose: PropTypes.func,
+    id: PropTypes.number,
+    index: PropTypes.number,
+
 };
 
 export default ConstructorIngredient

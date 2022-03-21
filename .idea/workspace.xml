@@ -3,11 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="7e820f6c-ee3c-4564-9852-673d84bace63" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ingredientLists/ingredientLists.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ingredientLists/ingredientLists.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/actions/actions-ingredients-type.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/actions/actions-ingredients-type.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/actions/ingredients.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/actions/ingredients.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/actions/order.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/actions/order.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/reducers/ingredients.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/reducers/ingredients.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/burger-ingredients/burger-ingredients.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/burger-ingredients/burger-ingredients.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/constructor-ingredient/constructor-ingredient.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/constructor-ingredient/constructor-ingredient.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ingredient/ingredient.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ingredient/ingredient.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/constants.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +103,8 @@
       <workItem from="1646408861286" duration="18676000" />
       <workItem from="1646728785868" duration="1273000" />
       <workItem from="1646812474646" duration="2360000" />
-      <workItem from="1647106565081" duration="43591000" />
+      <workItem from="1647106565081" duration="43688000" />
+      <workItem from="1647885240630" duration="875000" />
     </task>
     <servers />
   </component>

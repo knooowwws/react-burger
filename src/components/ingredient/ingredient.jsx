@@ -9,6 +9,7 @@ import ingredient from './ingredient.module.css';
 import {useDrag} from "react-dnd";
 import {getViewedIngredient} from "../../services/actions/ingredients";
 import {INGREDIENT_DETAILS_OPEN} from "../../services/actions";
+import {dataPropTypes} from "../../utils/constants";
 
 
 function Ingredient({card}) {
@@ -49,5 +50,5 @@ export default memo(Ingredient);
 
 
 Ingredient.propTypes = {
-    card: PropTypes.object
+    card: dataPropTypes
 };

@@ -1,28 +1,47 @@
-import React, { memo } from 'react';
+import React, {memo} from 'react';
+import {useDispatch, useSelector} from "react-redux";
 import PropTypes from 'prop-types';
 import {
     Counter,
     CurrencyIcon,
 } from '@ya.praktikum/react-developer-burger-ui-components';
 import ingredient from './ingredient.module.css';
-import { dataPropTypes } from '../../utils/constants';
+import {useDrag} from "react-dnd";
+import {getViewedIngredient} from "../../services/actions/ingredients";
+import {INGREDIENT_DETAILS_OPEN} from "../../services/actions";
+import {dataPropTypes} from "../../utils/constants";
 
 
-function Ingredient(props) {
-    const handle = () => {
-        props.onCardClick(props.card)
-        props.openIngredientDetails()
+function Ingredient({card}) {
+    const dispatch = useDispatch();
+    const {counter, bun} = useSelector(store => store.ingredients.ingredientsConstructor)
+
+    const [{isDrag}, drag] = useDrag({
+        type: 'ingredient-menu',
+        item: () => card,
+        collect: (monitor) => ({
+            isDrag: monitor.isDragging(),
+        }),
+    });
+
+    const countIngredient = bun && bun._id === card._id ? 2 : counter[card._id];
+
+    const opacity = isDrag ? .5 : 1
+
+    function handleCardClick() {
+        dispatch(getViewedIngredient(card));
+        dispatch({ type: INGREDIENT_DETAILS_OPEN });
     }
 
-    return(
-        <li onClick={handle} className={`mb-10 ${ingredient.li}`}>
-            <img src={props.card.image} alt={props.card.name}/>
-            <Counter count={1} size='default' />
+    return (
+        <li draggable={true} onClick={handleCardClick} ref={drag} style={{opacity}} className={`mb-10 ${ingredient.li}`}>
+            <img src={card.image} alt={card.name}/>
+            {countIngredient ? <Counter count={countIngredient} size='default'/> : null}
             <div className={ingredient.box}>
-                <span className='text text_type_digits-default'>{props.card.price}</span>
+                <span className='text text_type_digits-default'>{card.price}</span>
                 <CurrencyIcon type='primary'/>
             </div>
-            <p className={`text text_type_main-default`}>{props.card.name}</p>
+            <p className={`text text_type_main-default`}>{card.name}</p>
         </li>
     )
 }
@@ -31,5 +50,5 @@ export default memo(Ingredient);
 
 
 Ingredient.propTypes = {
-    card: PropTypes.object
+    card: dataPropTypes
 };

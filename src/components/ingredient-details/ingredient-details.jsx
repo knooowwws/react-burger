@@ -1,27 +1,27 @@
 import React from 'react';
 import {dataPropTypes} from '../../utils/constants';
 import style from './ingredient-details.module.css';
-import PropTypes from "prop-types";
-import Modal from "../modal/modal";
+import {useSelector} from "react-redux";
 
 
 function IngredientDetails(props) {
+    const card = useSelector(store => store.ingredients.viewedIngredient)
     return (
-        props.card && (
+        card && (
                 <section className={style.section}>
                     <img
-                        src={props.card.image_large}
-                        alt={props.card.name}
+                        src={card.image_large}
+                        alt={card.name}
                         className={style.img}
                     />
-                    <p className='mt-4 mb-8 text text_type_main-medium'>{props.card.name}</p>
+                    <p className='mt-4 mb-8 text text_type_main-medium'>{card.name}</p>
                     <ul className={style.ul}>
                         <li>
                             <p className='text text_type_main-default'>
                                 Калории,ккал
                             </p>
                             <p className='mt-2 text text_type_digits-default'>
-                                {props.card.calories}
+                                {card.calories}
                             </p>
                         </li>
                         <li>
@@ -29,21 +29,21 @@ function IngredientDetails(props) {
                                 Белки, г
                             </p>
                             <p className='mt-2 text text_type_digits-default'>
-                                {props.card.proteins}
+                                {card.proteins}
                             </p>
                         </li>
                         <li>
                             <p className='text text_type_main-default'>
                                 Жиры, г
                             </p>
-                            <p className='mt-2 text text_type_digits-default'>{props.card.fat}</p>
+                            <p className='mt-2 text text_type_digits-default'>{card.fat}</p>
                         </li>
                         <li>
                             <p className='text text_type_main-default'>
                                 Углеводы, г
                             </p>
                             <p className='mt-2 text text_type_digits-default'>
-                                {props.card.carbohydrates}
+                                {card.carbohydrates}
                             </p>
                         </li>
                     </ul>

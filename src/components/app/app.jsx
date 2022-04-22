@@ -3,7 +3,6 @@ import {useDispatch, useSelector} from "react-redux";
 
 import app from './app.module.css';
 import AppHeader from "../appHeader/appHeader";
-import {postUrl} from '../../utils/fetchIngredients'
 import MainSection from '../main-section/main'
 import OrderDetails from "../order-datails/order-details";
 import IngredientDetails from "../ingredient-details/ingredient-details";

@@ -17,7 +17,7 @@ const IngredientLists = React.forwardRef(({title, ingredient}, ref) => {
 })
 
 IngredientLists.propTypes = {
-    ingredient: PropTypes.arrayOf.isRequired,
+    ingredient: PropTypes.array,
     title: PropTypes.string,
 };
 

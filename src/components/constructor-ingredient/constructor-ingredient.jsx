@@ -79,7 +79,7 @@ function ConstructorIngredient({data, handleClose, id, index}) {
 ConstructorIngredient.propTypes = {
     data: PropTypes.object,
     handleClose: PropTypes.func,
-    id: PropTypes.number,
+    id: PropTypes.any,
     index: PropTypes.number,
 
 };

@@ -12,6 +12,7 @@ import Modal from "../modal/modal";
 import {getItems} from "../../services/actions/ingredients";
 import {CLEAR_ORDER_NUMBER, DEL_VIEWED_INGREDIENT} from "../../services/actions";
 import {Login} from "../pages/login/login";
+import {Register} from "../pages/register/register";
 
 
 function App() {
@@ -45,6 +46,9 @@ function App() {
             <Routes>
                 <Route path="/" element={<MainSection />} />
                 <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/forgot-password" element={<ForgotPassword />} />
+                {/*<Route path="/reset-password" element={<Register />} />*/}
             </Routes>
             {ingredientDetails && (
                 <Modal title={'Детали ингридиента'} onClose={closeAllPopups} isOpen={ingredientDetails}>

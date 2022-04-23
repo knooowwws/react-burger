@@ -29,3 +29,24 @@
     display: flex;
     flex-direction: row;
 }
+
+.link{
+    color: #8585ad;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: opacity .5s;
+}
+
+.link:hover{
+    opacity: .5;
+}
+
+.active{
+    color: #f2f2f3;
+    /*text-decoration: none;*/
+}
+
+.opacity {
+}
+

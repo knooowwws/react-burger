@@ -1,25 +1,29 @@
-import React, {useState} from "react";
-import {Link, Navigate, Route, Routes, useLocation} from 'react-router-dom'
-import {Input, PasswordInput, Button,} from '@ya.praktikum/react-developer-burger-ui-components';
-import style from './login.module.css'
+import React, {useState} from 'react';
+import {
+    Input,
+    PasswordInput,
+    Button,
+} from '@ya.praktikum/react-developer-burger-ui-components';
+import style from './register.module.css';
 import {useDispatch, useSelector} from "react-redux";
-import {profSelectors} from "../../../services/selectors";
-import {authorize} from '../../../services/actions/auth';
+import {profSelectors} from '../../../services/selectors'
+import {registerAction} from '../../../services/actions/auth'
+import {Link, Navigate, Route, Routes, useLocation} from "react-router-dom";
 
-export const Login = () => {
-    const location = useLocation();
+export const Register = () => {
     const dispatch = useDispatch()
-    const [valueFromInput, setValueFromInput] = useState({email: '', password: ''});
+    const [valueFromInput, setValueFromInput] = useState({name: '', email: '', password: ''});
     const logoutRequest = useSelector(profSelectors.authData);
     const token = localStorage.refreshToken;
-
-    const changeInput = (e) => {
-        setValueFromInput({...valueFromInput, [e.target.name]: e.target.value});
-    };
+    const location = useLocation()
 
     const submitForm = (e) => {
         e.preventDefault();
-        dispatch(authorize(valueFromInput));
+        dispatch(registerAction(valueFromInput));
+    };
+
+    const changeInput = (e) => {
+        setValueFromInput({...valueFromInput, [e.target.name]: e.target.value});
     };
 
     return (
@@ -31,8 +35,15 @@ export const Login = () => {
                 </Routes>
             ) : (
                 <section className={style.container}>
-                    <h2 className={`${style.title} text text_type_main-medium mb-6`}>Вход</h2>
+                    <h2 className='text text_type_main-medium mb-6'>Регистрация</h2>
                     <form className={style.form} onSubmit={submitForm}>
+                        <Input
+                            placeholder='Имя'
+                            type='text'
+                            name='name'
+                            value={valueFromInput.name || ''}
+                            onChange={changeInput}
+                        />
                         <Input
                             placeholder='E-mail'
                             type='email'
@@ -47,20 +58,18 @@ export const Login = () => {
                             onChange={changeInput}
                         />
                         <Button type='primary' size='medium'>
-                            Войти
+                            Зарегистрироваться
                         </Button>
                     </form>
                     <div className={style.text}>
                         <span className='text text_type_main-default text_color_inactive'>
-                            Вы — новый пользователь?{' '}
-                            <Link to='/register' className={style.link}>Зарегистрироваться</Link>
-                        </span>
-                        <span className='text text_type_main-default text_color_inactive'>Забыли пароль?{' '}
-                            <Link to='/forgot-password' className={style.link}>Восстановить пароль</Link>
+                            Уже зарегистрированы?{' '}
+                            <Link to='/login' className={style.link}>Войти</Link>
                         </span>
                     </div>
                 </section>
-            )}
+            )
+            }
         </>
     )
 }

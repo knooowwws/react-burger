@@ -17,7 +17,7 @@ export const login = async ({ email, password }) => {
     }).then(r => getResponse(r))
 }
 
-export const register = async ({ email, password, name }) => {
+export const register = async ({email, password, name}) => {
     await fetch(`${url}/auth/register`, {
         headers,
         method: 'POST',

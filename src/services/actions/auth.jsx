@@ -1,4 +1,4 @@
-import { getTokens, signOut, login, logOut } from '../../utils/functions';
+import { getTokens, signOut, login, logOut, register } from '../../utils/functions';
 
 export const logout = (goLogin) => {
     return function (dispatch) {
@@ -91,23 +91,24 @@ export const logout = (goLogin) => {
 //     };
 // };
 
-// export const registerAction = (name, email, password) => {
-//     return function (dispatch) {
-//         dispatch({ type: 'REGISTER_REQUEST' });
-//         register(name, email, password)
-//             .then((res) => {
-//                 getTokens(res);
-//                 if (res && res.success) {
-//                     dispatch({ type: 'REGISTER_SUCCESS', data: res });
-//                 } else {
-//                     dispatch({ type: 'REGISTER_ERROR' });
-//                 }
-//             })
-//             .catch((err) => {
-//                 console.log(err, err.message);
-//                 dispatch({ type: 'REGISTER_ERROR' });
-//             });
-//     };
+export const registerAction = (name, email, password) => {
+    return function (dispatch) {
+        dispatch({ type: 'REGISTER_REQUEST' });
+        register(name, email, password)
+            .then((res) => {
+                getTokens(res);
+                if (res && res.success) {
+                    dispatch({ type: 'REGISTER_SUCCESS', data: res });
+                } else {
+                    dispatch({ type: 'REGISTER_ERROR' });
+                }
+            })
+            .catch((err) => {
+                console.log(err, err.message);
+                dispatch({ type: 'REGISTER_ERROR' });
+            });
+    };
+};
 // };
 
 export const authorize = (email, password) => {

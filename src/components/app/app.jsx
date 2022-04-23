@@ -13,6 +13,7 @@ import {getItems} from "../../services/actions/ingredients";
 import {CLEAR_ORDER_NUMBER, DEL_VIEWED_INGREDIENT} from "../../services/actions";
 import {Login} from "../pages/login/login";
 import {Register} from "../pages/register/register";
+import {ForgotPassword} from "../pages/forgot-password/forgot-password";
 
 
 function App() {

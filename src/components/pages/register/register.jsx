@@ -30,8 +30,7 @@ export const Register = () => {
         <>
             {(token && (logoutRequest !== undefined)) ? (
                 <Routes>
-                    <Route path="/" element={<Navigate to={location.state?.from || '/'} replace/>}
-                    />
+                    <Route path="/" element={<Navigate to={location.state?.from || '/'} replace/>}/>
                 </Routes>
             ) : (
                 <section className={style.container}>

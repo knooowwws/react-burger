@@ -1,4 +1,4 @@
-import { getTokens, signOut, login, logOut, register } from '../../utils/functions';
+import {getTokens, signOut, login, logOut, register, getCodeChangePassword} from '../../utils/functions';
 
 export const logout = (goLogin) => {
     return function (dispatch) {
@@ -130,24 +130,24 @@ export const authorize = (email, password) => {
     };
 };
 
-// export const forgotPassword = (email, goResetPassword) => {
-//     return function (dispatch) {
-//         dispatch({ type: 'FORGOT_PASSWORD_REQUEST' });
-//         getCodeChangePassword(email)
-//             .then((res) => {
-//                 if (res && res.success) {
-//                     dispatch({ type: 'FORGOT_PASSWORD_SUCCESS' });
-//                     goResetPassword()
-//                 } else {
-//                     dispatch({ type: 'FORGOT_PASSWORD_ERROR' });
-//                 }
-//             })
-//             .catch((err) => {
-//                 console.log(err, err.message);
-//                 dispatch({ type: 'FORGOT_PASSWORD_ERROR' });
-//             });
-//     };
-// };
+export const forgotPassword = (email, goResetPassword) => {
+    return function (dispatch) {
+        dispatch({ type: 'FORGOT_PASSWORD_REQUEST' });
+        getCodeChangePassword(email)
+            .then((res) => {
+                if (res && res.success) {
+                    dispatch({ type: 'FORGOT_PASSWORD_SUCCESS' });
+                    goResetPassword()
+                } else {
+                    dispatch({ type: 'FORGOT_PASSWORD_ERROR' });
+                }
+            })
+            .catch((err) => {
+                console.log(err, err.message);
+                dispatch({ type: 'FORGOT_PASSWORD_ERROR' });
+            });
+    };
+};
 
 // export const savePassword = (data, goMainPage) => {
 //     console.log(data, goMainPage)

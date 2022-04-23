@@ -33,6 +33,19 @@ export const logOut = async () => {
     }).then(r => getResponse(r))
 };
 
+export const getCodeChangePassword = async ({ email }) => {
+    await fetch(`${url}/password-reset`, {
+        headers,
+        method: 'POST',
+        mode: 'cors',
+        cache: 'no-cache',
+        credentials: 'same-origin',
+        redirect: 'follow',
+        referrerPolicy: 'no-referrer',
+        body: JSON.stringify({ email }),
+    }).then(r => getResponse(r))
+};
+
 //SSS
 
 export function setCookie(name, value, props) {

@@ -2,13 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7e820f6c-ee3c-4564-9852-673d84bace63" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/pages/login/login.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/pages/login/login.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/actions/auth.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/reducers/auth.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/selectors/auth-select.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/functions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/app/app.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/app/app.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/constructor-ingredient/constructor-ingredient.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/constructor-ingredient/constructor-ingredient.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ingredient-details/ingredient-details.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ingredient-details/ingredient-details.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ingredientLists/ingredientLists.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ingredientLists/ingredientLists.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/selectors/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/selectors/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,18 +53,20 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/constructor-ingredient" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/services/actions" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="settings.nodejs" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/services/actions" />
       <recent name="$PROJECT_DIR$/src/components/constructor-ingredient" />
       <recent name="$PROJECT_DIR$/src/components/ingredientLists" />
     </key>
@@ -107,6 +114,8 @@
       <workItem from="1646812474646" duration="2360000" />
       <workItem from="1647106565081" duration="43688000" />
       <workItem from="1647885240630" duration="7450000" />
+      <workItem from="1650632967538" duration="52000" />
+      <workItem from="1650633030509" duration="10529000" />
     </task>
     <servers />
   </component>
@@ -124,5 +133,9 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

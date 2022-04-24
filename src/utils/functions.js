@@ -86,3 +86,16 @@ export const signOut = () => {
     localStorage.removeItem('refreshToken');
     deleteCookie('token');
 };
+
+export const saveNewPassword = async ({ password, token }) => {
+    await fetch(`${url}/password-reset/reset`, {
+        headers,
+        method: 'POST',
+        mode: 'cors',
+        cache: 'no-cache',
+        credentials: 'same-origin',
+        redirect: 'follow',
+        referrerPolicy: 'no-referrer',
+        body: JSON.stringify({ password, token }),
+    });
+};

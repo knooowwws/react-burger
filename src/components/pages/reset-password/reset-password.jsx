@@ -2,25 +2,28 @@ import React, {useState} from 'react';
 import {
     Input,
     Button,
+    PasswordInput
 } from '@ya.praktikum/react-developer-burger-ui-components';
-import style from './forgot-password.module.css';
-import {useDispatch} from "react-redux";
-import {forgotPassword} from '../../../services/actions/auth'
+import style from './reset-password.module.css';
+import {useDispatch, useSelector} from "react-redux";
+import {savePassword} from '../../../services/actions/auth'
 import {Link, Navigate, Route, Routes, useLocation, useNavigate} from "react-router-dom";
+import {profSelectors} from "../../../services/selectors";
 
-export const ForgotPassword = () => {
+export const ResetPassword = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    const [valueFromInput, setValueFromInput] = useState({email: ''});
-    const token = localStorage.refreshToken;
+    const [valueFromInput, setValueFromInput] = useState({password: '', token: ''});
+    // const token = localStorage.refreshToken;
     const location = useLocation()
+    const isResetPassword = useSelector(profSelectors.authData);
 
-    const linkReset = () => navigate('/reset-password')
+    const goHome = () => navigate('/')
 
 
     const submitForm = (e) => {
         e.preventDefault();
-        dispatch(forgotPassword(valueFromInput, linkReset));
+        dispatch(savePassword(valueFromInput, goHome()));
     };
 
     const changeInput = (e) => {
@@ -29,24 +32,31 @@ export const ForgotPassword = () => {
 
     return (
         <>
-            {(token && false) ? (
+            {(!isResetPassword && false) ? (
                 <Routes>
-                    <Route path="/" element={<Navigate to={location.state?.from || '/'} replace/>}/>
+                    <Route path="/forgot-password" element={<Navigate to={location.state?.from || '/'} replace/>}/>
                 </Routes>
             ) : (
                 <section className={style.container}>
                     <h2 className='text text_type_main-medium mb-6'>Восстановление пароля</h2>
                     <form className={style.form} onSubmit={submitForm}>
-                        <Input
-                            placeholder='Укажите e-mail'
-                            type='email'
-                            name='email'
-                            value={valueFromInput.email || ''}
+                        <PasswordInput
+                            name='password'
+                            value={valueFromInput.password || ''}
                             onChange={changeInput}
+                            size={'default'}
                         />
-                        <Link to={'/reset-password'}>
-                            <Button disabled={!valueFromInput.email} type='primary' size='medium'>
-                                Восстановить
+                        <Input
+                            placeholder='Введите код из письма'
+                            type='text'
+                            name='token'
+                            value={valueFromInput.token || ''}
+                            onChange={changeInput}
+                            size={'default'}
+                        />
+                        <Link to={'/'}>
+                            <Button type='primary' size='medium'>
+                                Сохранить
                             </Button>
                         </Link>
                     </form>

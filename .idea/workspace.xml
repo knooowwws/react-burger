@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7e820f6c-ee3c-4564-9852-673d84bace63" name="Default Changelist" comment="forgot_complete">
-      <change afterPath="$PROJECT_DIR$/src/components/pages/forgot-password/forgot-password.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/pages/forgot-password/forgot-password.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/pages/reset-password/reset-password.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/pages/reset-password/reset-password.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/app/app.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/app/app.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/register/register.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/register/register.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/forgot-password/forgot-password.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/forgot-password/forgot-password.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/actions/auth.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/actions/auth.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/functions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/functions.js" afterDir="false" />
     </list>
@@ -110,7 +110,7 @@
       <workItem from="1647106565081" duration="43688000" />
       <workItem from="1647885240630" duration="7450000" />
       <workItem from="1650632967538" duration="52000" />
-      <workItem from="1650633030509" duration="20945000" />
+      <workItem from="1650633030509" duration="22689000" />
     </task>
     <task id="LOCAL-00001" summary="Login_complete">
       <created>1650680282225</created>
@@ -133,7 +133,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650713906590</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="forgot_complete">
+      <created>1650716227049</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1650716227049</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

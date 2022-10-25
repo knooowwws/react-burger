@@ -1,8 +1,8 @@
 import React from 'react';
-import {dataPropTypes} from '../../utils/constants';
+// import {dataPropTypes} from '../../utils/constants';
 import style from './ingredient-details.module.css';
 import {useSelector} from "react-redux";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 
 
 function IngredientDetails(props) {
@@ -55,6 +55,6 @@ function IngredientDetails(props) {
 
 export default React.memo(IngredientDetails);
 
-IngredientDetails.propTypes = {
-    card: PropTypes.string
-};
+// IngredientDetails.propTypes = {
+//     card: PropTypes.string
+// };

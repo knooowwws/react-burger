@@ -10,7 +10,7 @@ export const Login = () => {
     const location = useLocation();
     const dispatch = useDispatch()
     const [valueFromInput, setValueFromInput] = useState({email: '', password: ''});
-    const logoutRequest = useSelector(profSelectors.authData);
+    const {logoutRequest} = useSelector(profSelectors.authData);
     const token = localStorage.refreshToken;
 
     const changeInput = (e) => {
@@ -24,7 +24,7 @@ export const Login = () => {
 
     return (
         <>
-            {(token && (logoutRequest !== undefined)) ? (
+            {(token && !logoutRequest) ? (
                 <Routes>
                     <Route path="/" element={<Navigate to={location.state?.from || '/'} replace/>}
                     />
@@ -53,7 +53,7 @@ export const Login = () => {
                     <div className={style.text}>
                         <span className='text text_type_main-default text_color_inactive'>
                             Вы — новый пользователь?{' '}
-                            <Link to='/register' className={style.link}>Зарегистрироваться</Link>
+                            <Link to='/registration' className={style.link}>Зарегистрироваться</Link>
                         </span>
                         <span className='text text_type_main-default text_color_inactive'>Забыли пароль?{' '}
                             <Link to='/forgot-password' className={style.link}>Восстановить пароль</Link>

@@ -3,9 +3,9 @@ import {
     signOut,
     login,
     logOut,
-    register,
+    registration,
     getCodeChangePassword,
-    saveNewPassword
+    saveNewPassword, getUserInfo, getNewToken, updateUserInfo
 } from '../../utils/functions';
 
 export const logout = (goLogin) => {
@@ -13,96 +13,100 @@ export const logout = (goLogin) => {
         dispatch({ type: 'LOGOUT_REQUEST' });
         logOut()
             .then((res) => {
-                if (res && res.success) {
+
+                    console.log('exit success')
                     signOut();
                     dispatch({ type: 'LOGOUT_SUCCESS' });
                     goLogin()
-                } else {
-                    dispatch({ type: 'LOGOUT_ERROR' });
-                }
+                    console.log('выход удался')
+                    // dispatch({ type: 'LOGOUT_ERROR' });
+
             })
             .catch((err) => {
+                console.log('выход не удался2')
                 console.log(err, err.message);
                 dispatch({ type: 'LOGOUT_ERROR' });
             });
     };
 };
 
-// export const getNewAccessToken = () => {
-//     return function (dispatch) {
-//         dispatch({ type: 'TOKEN_REQUEST' });
-//         getNewToken()
-//             .then((res) => {
-//                 getTokens(res);
-//                 if (res && res.success) {
-//                     dispatch({ type: 'TOKEN_SUCCESS' });
-//                 } else {
-//                     dispatch({ type: 'TOKEN_ERROR' });
-//                 }
-//             })
-//             .catch((err) => {
-//                 if (err.message === 'Token is invalid') {
-//                     dispatch(getNewAccessToken());
-//                 } else console.log(err, err.message);
-//                 dispatch({ type: 'TOKEN_ERROR' });
-//             });
-//     };
-// };
+export const getNewAccessToken = () => {
+    return function (dispatch) {
+        dispatch({ type: 'TOKEN_REQUEST' });
+        getNewToken()
+            .then((res) => {
+                console.log('новый аксес токен получен')
+                getTokens(res);
+                if (res && res.success) {
+                    dispatch({ type: 'TOKEN_SUCCESS' });
+                } else {
+                    dispatch({ type: 'TOKEN_ERROR' });
+                }
+            })
+            .catch((err) => {
+                if (err.message === 'Token is invalid') {
+                    dispatch(getNewAccessToken());
+                } else console.log(err, err.message);
+                dispatch({ type: 'TOKEN_ERROR' });
+            });
+    };
+};
 
-// export const updateUserProfile = ({ name, email, password }) => {
-//     return function (dispatch) {
-//         dispatch({ type: 'USER_UPDATE_REQUEST' });
-//         updateUserInfo({ name, email, password })
-//             .then((res) => {
-//                 if (res && res.success) {
-//                     dispatch({ type: 'USER_UPDATE_SUCCESS', data: res });
-//                 } else {
-//                     dispatch({ type: 'USER_UPDATE_ERROR' });
-//                 }
-//             })
-//             .catch((err) => {
-//                 if (
-//                     err.message === 'jwt expired' ||
-//                     err.message === 'Token is invalid'
-//                 ) {
-//                     dispatch(getNewAccessToken());
-//                     dispatch(updateUserProfile({ name, email, password }));
-//                 }
-//
-//                 dispatch({ type: 'USER_UPDATE_ERROR' });
-//             });
-//     };
-// };
+export const updateUserProfile = ({ name, email, password }) => {
+    return function (dispatch) {
+        dispatch({ type: 'USER_UPDATE_REQUEST' });
+        updateUserInfo({ name, email, password })
+            .then((res) => {
+                if (res && res.success) {
+                    dispatch({ type: 'USER_UPDATE_SUCCESS', data: res });
+                } else {
+                    dispatch({ type: 'USER_UPDATE_ERROR' });
+                }
+            })
+            .catch((err) => {
+                if (
+                    err.message === 'jwt expired' ||
+                    err.message === 'Token is invalid'
+                ) {
+                    dispatch(getNewAccessToken());
+                    dispatch(updateUserProfile({ name, email, password }));
+                }
 
-// export const getUserProfile = () => {
-//     return function (dispatch) {
-//         dispatch({ type: 'USER_REQUEST' });
-//
-//         getUserInfo()
-//             .then((res) => {
-//                 if (res && res.success) {
-//                     dispatch({ type: 'USER_SUCCESS', data: res });
-//                 } else {
-//                     dispatch({ type: 'USER_ERROR' });
-//                 }
-//             })
-//             .catch((err) => {
-//                 if (
-//                     err.message === 'jwt expired' ||
-//                     err.message === 'Token is invalid'
-//                 ) {
-//                     dispatch(getNewAccessToken());
-//                     dispatch(getUserProfile());
-//                 } else console.log(err.message);
-//                 dispatch({ type: 'USER_ERROR' });
-//             });
-//     };
-// };
+                dispatch({ type: 'USER_UPDATE_ERROR' });
+            });
+    };
+};
 
-export const registerAction = (name, email, password) => {
+// user
+export const getUserProfile = () => {
+    return function (dispatch) {
+        dispatch({ type: 'USER_REQUEST' });
+
+        getUserInfo()
+            .then((res) => {
+                if (res && res.success) {
+                    dispatch({ type: 'USER_SUCCESS', data: res });
+                } else {
+                    dispatch({ type: 'USER_ERROR' });
+                }
+            })
+            .catch((err) => {
+                if (
+                    err.message === 'jwt expired' ||
+                    err.message === 'Token is invalid'
+                ) {
+                    dispatch(getNewAccessToken());
+                    dispatch(getUserProfile());
+                } else console.log(err.message);
+                dispatch({ type: 'USER_ERROR' });
+            });
+    };
+};
+
+export const registerAction = ({name, email, password}) => {
     return function (dispatch) {
         dispatch({ type: 'REGISTER_REQUEST' });
-        register(name, email, password)
+        registration({name, email, password})
             .then((res) => {
                 getTokens(res);
                 if (res && res.success) {
@@ -119,18 +123,20 @@ export const registerAction = (name, email, password) => {
 };
 // };
 
-export const authorize = (email, password) => {
+export const authorize = ({email, password}) => {
     return function (dispatch) {
         dispatch({ type: 'LOGIN_REQUEST' });
         login(email, password)
-            .then((res) => {
-                getTokens(res);
-                if (res && res.success) {
-                    dispatch({ type: 'LOGIN_SUCCESS', data: res });
-                } else {
-                    dispatch({ type: 'LOGIN_ERROR' });
-                }
-            })
+            .then(r => getTokens(r))
+            // .then(r => console.log(typeof r))
+            // .then((res) => {
+            //     getTokens(res);
+            //     if (res && res.success) {
+            //         dispatch({ type: 'LOGIN_SUCCESS', data: res });
+            //     } else {
+            //         dispatch({ type: 'LOGIN_ERROR' });
+            //     }
+            // })
             .catch((err) => {
                 console.log(err, err.message);
                 dispatch({ type: 'LOGIN_ERROR' });

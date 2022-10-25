@@ -1,49 +1,60 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { NavLink, useLocation, useHistory } from 'react-router-dom';
+import {NavLink, useNavigate, useLocation, } from 'react-router-dom';
 import { logout } from '../../services/actions/auth';
-import styleProfileNavigation from './profile-navigation.module.css';
+import style from './profile-nav.module.css';
 
-export const ProfileNavigation = () => {
+export const ProfileNav = () => {
     const dispatch = useDispatch();
-    const history = useHistory();
+    const navigate = useNavigate();
     const goLogin = () => {
-        history.push('/login');
+        navigate('/login')
     };
+
+    let activeStyle = {
+        color: "white",
+    };
+
     const handleClick = () => {
         dispatch(logout(goLogin));
     };
     const { pathname } = useLocation();
     return (
-        <div className={styleProfileNavigation.container}>
-            <ul className={styleProfileNavigation.list}>
-                <li className={styleProfileNavigation.listItem}>
+        <div className={style.container}>
+            <ul className={style.list}>
+                <li className={style.listItem}>
                     <NavLink
-                        className={`text text_type_main-medium ${styleProfileNavigation.link}`}
-                        activeClassName={styleProfileNavigation.active_link}
+                        className={`text text_type_main-medium ${style.link}`}
+                        style={({isActive}) =>
+                            isActive ? activeStyle : undefined
+                        }
                         to='/profile'
-                        exact
+                        // exact
                     >
                         Профиль
                     </NavLink>
                 </li>
-                <li className={styleProfileNavigation.listItem}>
+                <li className={style.listItem}>
                     <NavLink
-                        className={`text text_type_main-medium ${styleProfileNavigation.link}`}
-                        activeClassName={styleProfileNavigation.active_link}
+                        className={`text text_type_main-medium ${style.link}`}
+                        style={({isActive}) =>
+                            isActive ? activeStyle : undefined
+                        }
                         to='/profile/orders'
-                        exact
+                        // exact
                     >
                         История заказов
                     </NavLink>
                 </li>
-                <li className={styleProfileNavigation.listItem}>
+                <li className={style.listItem}>
                     <NavLink
                         onClick={handleClick}
-                        className={`text text_type_main-medium ${styleProfileNavigation.link}`}
-                        activeClassName={styleProfileNavigation.active_link}
+                        className={`text text_type_main-medium ${style.link}`}
+                        style={({isActive}) =>
+                            isActive ? activeStyle : undefined
+                        }
                         to='/login'
-                        exact
+                        // exact
                     >
                         Выход
                     </NavLink>

@@ -1,15 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react';
-import {
-    Button,
-    Input,
-} from '@ya.praktikum/react-developer-burger-ui-components';
-import styleProfileForm from './profile-user-form.module.css';
+import {Button, Input} from '@ya.praktikum/react-developer-burger-ui-components';
+import style from './profile-user-info.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { userSelectors } from '../../services/selectors';
+import { profSelectors } from '../../services/selectors';
 import { updateUserProfile } from '../../services/actions/auth';
 
-export const ProfileUserForm = () => {
-    const { name, email } = useSelector(userSelectors.authData);
+export const ProfileUserInfo = () => {
+    const { name, email } = useSelector(profSelectors.authData);
     const [inputValue, setInputValue] = useState({
         name: '',
         email: '',
@@ -29,10 +26,7 @@ export const ProfileUserForm = () => {
     const passwordRef = useRef(null);
 
     const handleChange = (e) => {
-        const target = e.target;
-        const name = target.name;
-        const value = target.value;
-        setInputValue({ ...inputValue, [name]: value });
+        setInputValue({ ...inputValue, [e.target.name]: e.target.value });
     };
 
     const handleSubmit = (e) => {
@@ -81,7 +75,7 @@ export const ProfileUserForm = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit} className={styleProfileForm.form}>
+        <form onSubmit={handleSubmit} className={style.form}>
             <Input
                 placeholder='Имя'
                 type='text'

@@ -13,7 +13,7 @@ import {Link, Navigate, Route, Routes, useLocation} from "react-router-dom";
 export const Register = () => {
     const dispatch = useDispatch()
     const [valueFromInput, setValueFromInput] = useState({name: '', email: '', password: ''});
-    const logoutRequest = useSelector(profSelectors.authData);
+    const {logoutRequest} = useSelector(profSelectors.authData);
     const token = localStorage.refreshToken;
     const location = useLocation()
 
@@ -28,7 +28,7 @@ export const Register = () => {
 
     return (
         <>
-            {(token && (logoutRequest !== undefined)) ? (
+            {(token && !logoutRequest) ? (
                 <Routes>
                     <Route path="/" element={<Navigate to={location.state?.from || '/'} replace/>}/>
                 </Routes>

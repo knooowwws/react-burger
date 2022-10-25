@@ -29,7 +29,7 @@ export const ForgotPassword = () => {
 
     return (
         <>
-            {(token && false) ? (
+            {(token) ? (
                 <Routes>
                     <Route path="/" element={<Navigate to={location.state?.from || '/'} replace/>}/>
                 </Routes>

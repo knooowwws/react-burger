@@ -14,7 +14,7 @@ export const ResetPassword = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const [valueFromInput, setValueFromInput] = useState({password: '', token: ''});
-    // const token = localStorage.refreshToken;
+    const token = localStorage.refreshToken;
     const location = useLocation()
     const isResetPassword = useSelector(profSelectors.authData);
 
@@ -32,7 +32,7 @@ export const ResetPassword = () => {
 
     return (
         <>
-            {(!isResetPassword && false) ? (
+            {(!isResetPassword && token) ? (
                 <Routes>
                     <Route path="/forgot-password" element={<Navigate to={location.state?.from || '/'} replace/>}/>
                 </Routes>

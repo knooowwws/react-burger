@@ -15,6 +15,8 @@ import {Login} from "../pages/login/login";
 import {Register} from "../pages/register/register";
 import {ForgotPassword} from "../pages/forgot-password/forgot-password";
 import {ResetPassword} from "../pages/reset-password/reset-password";
+import {Profile} from "../pages/profile/profile";
+import {ProtectedRoute} from "../protected-route/protected-route";
 
 
 function App() {
@@ -46,11 +48,18 @@ function App() {
         <div className={app.app} tabIndex={0}>
             <AppHeader/>
             <Routes>
-                <Route path="/" element={<MainSection />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/register" element={<Register />} />
-                <Route path="/forgot-password" element={<ForgotPassword />} />
-                <Route path="/reset-password" element={<ResetPassword />} />
+                <Route path="/" element={<MainSection/>}/>
+                <Route path="/login" element={<Login/>}/>
+                <Route path="/registration" element={<Register/>}/>
+                <Route path="/forgot-password" element={<ProtectedRoute path={'forgot-password'}>
+                    <ForgotPassword/>
+                </ProtectedRoute>}/>
+                <Route path="/reset-password" element={<ProtectedRoute path={'reset-password'}>
+                    <ResetPassword/>
+                </ProtectedRoute>}/>
+                <Route path="/profile" element={<ProtectedRoute path={'login'}>
+                    <Profile/>
+                </ProtectedRoute>}/>
             </Routes>
             {ingredientDetails && (
                 <Modal title={'Детали ингридиента'} onClose={closeAllPopups} isOpen={ingredientDetails}>

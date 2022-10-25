@@ -1,13 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="7e820f6c-ee3c-4564-9852-673d84bace63" name="Default Changelist" comment="forgot_complete">
-      <change afterPath="$PROJECT_DIR$/src/components/pages/reset-password/reset-password.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/pages/reset-password/reset-password.module.css" afterDir="false" />
+    <list default="true" id="7e820f6c-ee3c-4564-9852-673d84bace63" name="Default Changelist" comment="reset_complete">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/app/app.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/app/app.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/appHeader/appHeader.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/appHeader/appHeader.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ingredient-details/ingredient-details.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ingredient-details/ingredient-details.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ingredient/ingredient.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ingredient/ingredient.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/modal/modal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modal/modal.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/pages/forgot-password/forgot-password.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/forgot-password/forgot-password.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/login/login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/login/login.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/profile/profile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/profile/profile.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/profile/profile.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/profile/profile.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/register/register.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/register/register.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/reset-password/reset-password.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/reset-password/reset-password.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/profile-nav/profile-nav.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/profile-nav/profile-nav.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/profile-nav/profile-nav.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/profile-nav/profile-nav.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/profile-user-info/profile-user-info.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/profile-user-info/profile-user-info.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/protected-route/protected-route.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/protected-route/protected-route.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/actions/auth.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/actions/auth.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/reducers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/reducers/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/fetchIngredients.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/fetchIngredients.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/functions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/functions.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -55,7 +71,7 @@
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="settings.nodejs" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Console Colors" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -111,6 +127,24 @@
       <workItem from="1647885240630" duration="7450000" />
       <workItem from="1650632967538" duration="52000" />
       <workItem from="1650633030509" duration="22689000" />
+      <workItem from="1650795733331" duration="2199000" />
+      <workItem from="1650808563526" duration="4882000" />
+      <workItem from="1655839890441" duration="48000" />
+      <workItem from="1655839949383" duration="596000" />
+      <workItem from="1656329819234" duration="1535000" />
+      <workItem from="1657569516795" duration="740000" />
+      <workItem from="1657723827989" duration="663000" />
+      <workItem from="1657831503357" duration="645000" />
+      <workItem from="1658264146871" duration="7458000" />
+      <workItem from="1659015143859" duration="6232000" />
+      <workItem from="1659390475090" duration="506000" />
+      <workItem from="1659720372623" duration="606000" />
+      <workItem from="1661429684063" duration="46000" />
+      <workItem from="1661545573931" duration="1205000" />
+      <workItem from="1665309943188" duration="15000" />
+      <workItem from="1665309968628" duration="614000" />
+      <workItem from="1665912311099" duration="13758000" />
+      <workItem from="1666507989745" duration="27362000" />
     </task>
     <task id="LOCAL-00001" summary="Login_complete">
       <created>1650680282225</created>
@@ -140,7 +174,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650716227049</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="reset_complete">
+      <created>1650804507037</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1650804507037</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -163,7 +204,8 @@
     <MESSAGE value="appheader_complete" />
     <MESSAGE value="register_complete" />
     <MESSAGE value="forgot_complete" />
-    <option name="LAST_COMMIT_MESSAGE" value="forgot_complete" />
+    <MESSAGE value="reset_complete" />
+    <option name="LAST_COMMIT_MESSAGE" value="reset_complete" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

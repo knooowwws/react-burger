@@ -26,7 +26,7 @@ function AppHeader() {
                             isActive ? activeStyle : undefined
                         } className={`text text_type_main-default mr-2 pr-5 ${styles.link}`}>
                             <ListIcon type={pathname === '/orders' ? 'primary' : 'secondary'}/>
-                            <span className='text text_type_main-default text_color_inactive ml-2'>Лента заказов</span>
+                            <span className='text text_type_main-default ml-2'>Лента заказов</span>
                         </NavLink>
                     </div>
                 </div>
@@ -34,11 +34,11 @@ function AppHeader() {
                     <Logo/>
                 </div>
                 <div className={`pr-5 ${styles.boxElement}`}>
-                    <NavLink to='profile' style={({isActive}) =>
-                        isActive ? activeStyle : undefined
-                    } className={`text text_type_main-default mr-2 pr-5 ${styles.link}`}>
+                    <NavLink to='/profile'
+                             style={({isActive}) => isActive ? activeStyle : undefined}
+                             className={`text text_type_main-default mr-2 pr-5 ${styles.link}`}>
                         <ProfileIcon type={pathname === '/profile' || pathname === '/profile/orders' ? 'primary' : 'secondary'}/>
-                        <span className='text text_type_main-default text_color_inactive ml-2'>Личный кабинет</span>
+                        <span className='text text_type_main-default ml-2'>Личный кабинет</span>
                     </NavLink>
                 </div>
             </nav>

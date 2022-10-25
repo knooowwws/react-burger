@@ -9,31 +9,48 @@ const headers = {
 
 
 //FUNCTIONS
-export const login = async ({ email, password }) => {
-    await fetch(`${url}/auth/login`, {
+export const login = async (email, password) => {
+    const res = await fetch(`${url}/auth/login`, {
         headers,
         method: 'POST',
+        mode: 'cors',
+        cache: 'no-cache',
+        credentials: 'same-origin',
+        redirect: 'follow',
+        referrerPolicy: 'no-referrer',
         body: JSON.stringify({email, password}),
-    }).then(r => getResponse(r))
+    })
+    if (res.ok) {
+        return res.json()
+    } else {
+        console.log(res.status)
+    }
 }
 
-export const register = async ({email, password, name}) => {
-    await fetch(`${url}/auth/register`, {
+export const registration = async ({email, password, name}) => {
+    const res = await fetch(`${url}/auth/register`, {
         headers,
         method: 'POST',
         body: JSON.stringify({email, password, name}),
-    }).then(r => getResponse(r))
+    })
+    if (res.ok) {
+        return res.json()
+    } else {
+        return res.json().then((err) => Promise.reject(err))
+    }
+
 }
 
 export const logOut = async () => {
-     await fetch(`${url}/auth/logout`, {
+    await fetch(`${url}/auth/logout`, {
         headers,
         method: 'POST',
-        body: JSON.stringify({ token: localStorage.refreshToken }),
+        body: JSON.stringify({'token': localStorage.refreshToken}),
     }).then(r => getResponse(r))
+        .catch(r => r.json().then(err => Promise.reject(err)))
 };
 
-export const getCodeChangePassword = async ({ email }) => {
+export const getCodeChangePassword = async ({email}) => {
     await fetch(`${url}/password-reset`, {
         headers,
         method: 'POST',
@@ -42,7 +59,7 @@ export const getCodeChangePassword = async ({ email }) => {
         credentials: 'same-origin',
         redirect: 'follow',
         referrerPolicy: 'no-referrer',
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({email}),
     }).then(r => getResponse(r))
 };
 
@@ -72,7 +89,7 @@ export function setCookie(name, value, props) {
 }
 
 export function deleteCookie(name) {
-    setCookie(name, null, { expires: -1 });
+    setCookie(name, null, {expires: -1});
 }
 
 export const getTokens = (res) => {
@@ -83,11 +100,12 @@ export const getTokens = (res) => {
 };
 
 export const signOut = () => {
-    localStorage.removeItem('refreshToken');
+    delete localStorage.refreshToken;
+    delete document.cookie
     deleteCookie('token');
 };
 
-export const saveNewPassword = async ({ password, token }) => {
+export const saveNewPassword = async ({password, token}) => {
     await fetch(`${url}/password-reset/reset`, {
         headers,
         method: 'POST',
@@ -96,6 +114,69 @@ export const saveNewPassword = async ({ password, token }) => {
         credentials: 'same-origin',
         redirect: 'follow',
         referrerPolicy: 'no-referrer',
-        body: JSON.stringify({ password, token }),
+        body: JSON.stringify({password, token}),
     });
 };
+
+export const getNewToken = async () => {
+    await fetch(`${url}/auth/token`, {
+        headers,
+        method: 'POST',
+        mode: 'cors',
+        cache: 'no-cache',
+        credentials: 'same-origin',
+        redirect: 'follow',
+        referrerPolicy: 'no-referrer',
+        body: JSON.stringify({'token': localStorage.refreshToken}),
+    }).then(r => getResponse(r))
+        .catch(res => {
+            console.log(res.json().then((err) => Promise.reject(err.message)))
+            console.log('новый токен не получен АПИ')
+        })
+
+};
+
+export const getUserInfo = async () => {
+    await fetch(`${url}/auth/user`, {
+        headers: {
+            headers,
+            Authorization: `Bearer ${getCookie('token')}`,
+        },
+        method: 'GET',
+        mode: 'cors',
+        cache: 'no-cache',
+        credentials: 'same-origin',
+        redirect: 'follow',
+        referrerPolicy: 'no-referrer',
+    }).then(r => getResponse(r))
+        .then(r => {
+            console.log('информация о юзере')
+            console.log(r)
+        })
+        .catch(r => console.log('pizdec blya user info net'))
+
+};
+
+export const updateUserInfo = async ({name, email, password}) => {
+    await fetch(`${url}/auth/user`, {
+        method: 'PATCH',
+        headers: {
+            ...headers,
+            Authorization: `Bearer ${getCookie('token')}`,
+        },
+        mode: 'cors',
+        cache: 'no-cache',
+        credentials: 'same-origin',
+        redirect: 'follow',
+        referrerPolicy: 'no-referrer',
+        body: JSON.stringify({name, email, password}),
+    }).then(r => getResponse(r))
+};
+
+export function getCookie(name) {
+    let matches = document.cookie.match(
+        new RegExp('(?:^|; )' + name.replace(/([.$?*|{}()[\]\\/+^])/g, '\\$1') + '=([^;]*)')
+    );
+    return matches ? decodeURIComponent(matches[1]) : undefined;
+}
+

@@ -7,33 +7,33 @@ import {indexModal} from "../../utils/constants";
 import React from "react";
 
 
-function Modal(props) {
+function Modal({title, isOpen, onClose, children}) {
 
     React.useEffect(() => {
 
         const closePopupWithEsc = (e) => {
             if (e.key === "Escape") {
-                props.onClose()
+                onClose()
             }
         }
         document.addEventListener('keydown', closePopupWithEsc)
 
         return () => document.removeEventListener('keydown', closePopupWithEsc)
-    }, [props.onClose])
+    }, [onClose])
 
     return ReactDOM.createPortal(
-        props.isOpen && (
+        isOpen && (
             <>
-                <ModalOverlay {...props}/>
+                <ModalOverlay {...{title, isOpen, onClose, children}}/>
                 <div className={`${style.modal} pt-10 pl-10 pb-15 pr-10`}>
                     <h2 className={`text text_type_main-large ${style.title}`}>
-                        {props.title}
+                        {title}
                     </h2>
 
-                    <div onClick={props.onClose} className={style.close}>
+                    <div onClick={onClose} className={style.close}>
                         <CloseIcon type={"primary"}/>
                     </div>
-                    {props.children}
+                    {children}
                 </div>
             </>),
         indexModal
@@ -43,7 +43,7 @@ function Modal(props) {
 export default React.memo(Modal)
 
 Modal.propTypes = {
-    title: PropTypes.string.isRequired,
+    title: PropTypes.string,
     onClose: PropTypes.func.isRequired,
     isOpen: PropTypes.bool.isRequired,
     children: PropTypes.element.isRequired,

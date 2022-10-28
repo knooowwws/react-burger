@@ -120,7 +120,9 @@ export const saveNewPassword = async ({password, token}) => {
 
 export const getNewToken = async () => {
     await fetch(`${url}/auth/token`, {
-        headers,
+        headers: {
+            "Content-Type": "application/json",
+        },
         method: 'POST',
         mode: 'cors',
         cache: 'no-cache',
@@ -130,17 +132,18 @@ export const getNewToken = async () => {
         body: JSON.stringify({'token': localStorage.refreshToken}),
     }).then(r => getResponse(r))
         .catch(res => {
-            console.log(res.json().then((err) => Promise.reject(err.message)))
             console.log('новый токен не получен АПИ')
+            return res.json().then((err) => Promise.reject(err.message))
         })
 
 };
 
 export const getUserInfo = async () => {
+    const cook = getCookie('token')
     await fetch(`${url}/auth/user`, {
         headers: {
             headers,
-            Authorization: `Bearer ${getCookie('token')}`,
+            Authorization: `Bearer ${cook}`,
         },
         method: 'GET',
         mode: 'cors',
@@ -149,11 +152,11 @@ export const getUserInfo = async () => {
         redirect: 'follow',
         referrerPolicy: 'no-referrer',
     }).then(r => getResponse(r))
-        .then(r => {
-            console.log('информация о юзере')
-            console.log(r)
+        .catch(res => {
+            console.log('no user Info')
+            return res.json().then((err) => Promise.reject(err.message))
         })
-        .catch(r => console.log('pizdec blya user info net'))
+    debugger
 
 };
 

@@ -11,12 +11,16 @@ import {
     ORDER_DETAILS_OPEN
 } from "../../services/actions";
 import {getOrder} from "../../services/actions/order";
+import { useNavigate} from "react-router-dom";
+
 
 function BurgerConstructor(props) {
     const {bun, ingredient} = useSelector((store) => store.ingredients.ingredientsConstructor)
 
     const dispatch = useDispatch()
     const price = bun && bun.price * 2 + ingredient.reduce((previousValue, currentValue) => previousValue + currentValue.price, 0)
+    const refreshToken = localStorage.refreshToken;
+    const navigate = useNavigate()
 
     const [{canDrop, isOver}, drop] = useDrop(() => ({
         accept: 'ingredient-menu',
@@ -59,8 +63,12 @@ function BurgerConstructor(props) {
                 return item._id;
             })
             .concat(bun._id);
-        dispatch({type: ORDER_DETAILS_OPEN});
-        dispatch(getOrder(id));
+        if (refreshToken) {
+            dispatch({type: ORDER_DETAILS_OPEN});
+            dispatch(getOrder(id));
+        } else {
+            navigate('/login')
+        }
     }
 
     return (
@@ -99,7 +107,7 @@ function BurgerConstructor(props) {
                         Оформить заказ
                     </Button>
                 </div>
-                )
+            )
             }
         </section>
     )

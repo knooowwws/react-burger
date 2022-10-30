@@ -15,6 +15,16 @@
     margin-right: 0;
 }
 
+.span {
+    color: white;
+    text-decoration: none;
+}
+
+.text {
+    color: white;
+    text-decoration: none;
+}
+
 .box {
     display: flex;
     gap: 9px;

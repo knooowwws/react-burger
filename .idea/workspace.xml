@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="7e820f6c-ee3c-4564-9852-673d84bace63" name="Default Changelist" comment="">
+    <list default="true" id="7e820f6c-ee3c-4564-9852-673d84bace63" name="Default Changelist" comment="reset_complete">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/app/app.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/app/app.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/constructor-ingredient/constructor-ingredient.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/constructor-ingredient/constructor-ingredient.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/ingredient-details/ingredient-details.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ingredient-details/ingredient-details.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ingredient/ingredient.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ingredient/ingredient.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ingredient/ingredient.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ingredient/ingredient.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ingredientLists/ingredient-list.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ingredientLists/ingredient-list.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/ingredientLists/ingredientLists.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ingredientLists/ingredientLists.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/profile/profile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/profile/profile.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/actions/ingredients.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/actions/ingredients.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,18 +53,20 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/constructor-ingredient" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/services/actions" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Console Colors" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/services/actions" />
       <recent name="$PROJECT_DIR$/src/components/constructor-ingredient" />
       <recent name="$PROJECT_DIR$/src/components/ingredientLists" />
     </key>
@@ -107,7 +114,65 @@
       <workItem from="1646812474646" duration="2360000" />
       <workItem from="1647106565081" duration="43688000" />
       <workItem from="1647885240630" duration="7450000" />
+      <workItem from="1650632967538" duration="52000" />
+      <workItem from="1650633030509" duration="22689000" />
+      <workItem from="1650795733331" duration="2199000" />
+      <workItem from="1650808563526" duration="4882000" />
+      <workItem from="1655839890441" duration="48000" />
+      <workItem from="1655839949383" duration="596000" />
+      <workItem from="1656329819234" duration="1535000" />
+      <workItem from="1657569516795" duration="740000" />
+      <workItem from="1657723827989" duration="663000" />
+      <workItem from="1657831503357" duration="645000" />
+      <workItem from="1658264146871" duration="7458000" />
+      <workItem from="1659015143859" duration="6232000" />
+      <workItem from="1659390475090" duration="506000" />
+      <workItem from="1659720372623" duration="606000" />
+      <workItem from="1661429684063" duration="46000" />
+      <workItem from="1661545573931" duration="1205000" />
+      <workItem from="1665309943188" duration="15000" />
+      <workItem from="1665309968628" duration="614000" />
+      <workItem from="1665912311099" duration="13758000" />
+      <workItem from="1666507989745" duration="36836000" />
+      <workItem from="1667047724813" duration="4744000" />
+      <workItem from="1667076738636" duration="20516000" />
     </task>
+    <task id="LOCAL-00001" summary="Login_complete">
+      <created>1650680282225</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1650680282225</updated>
+    </task>
+    <task id="LOCAL-00002" summary="appheader_complete">
+      <created>1650713880826</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1650713880826</updated>
+    </task>
+    <task id="LOCAL-00003" summary="register_complete">
+      <created>1650713906590</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1650713906590</updated>
+    </task>
+    <task id="LOCAL-00004" summary="forgot_complete">
+      <created>1650716227049</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1650716227049</updated>
+    </task>
+    <task id="LOCAL-00005" summary="reset_complete">
+      <created>1650804507037</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1650804507037</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -124,5 +189,17 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Login_complete" />
+    <MESSAGE value="appheader_complete" />
+    <MESSAGE value="register_complete" />
+    <MESSAGE value="forgot_complete" />
+    <MESSAGE value="reset_complete" />
+    <option name="LAST_COMMIT_MESSAGE" value="reset_complete" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

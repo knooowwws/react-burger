@@ -1,12 +1,15 @@
 import React from 'react';
-import {dataPropTypes} from '../../utils/constants';
+// import {dataPropTypes} from '../../utils/constants';
 import style from './ingredient-details.module.css';
 import {useSelector} from "react-redux";
-import PropTypes from "prop-types";
+import {useParams} from "react-router-dom";
+// import PropTypes from "prop-types";
 
 
-function IngredientDetails(props) {
-    const card = useSelector(store => store.ingredients.viewedIngredient)
+function IngredientDetails() {
+    const {id} = useParams()
+    const card = useSelector(store => store.ingredients.viewedIngredient) ||
+        JSON.parse(localStorage.getItem('ingredients')).find((i) => i._id === id);
     return (
         card && (
                 <section className={style.section}>
@@ -55,6 +58,6 @@ function IngredientDetails(props) {
 
 export default React.memo(IngredientDetails);
 
-IngredientDetails.propTypes = {
-    card: PropTypes.string
-};
+// IngredientDetails.propTypes = {
+//     card: PropTypes.string
+// };

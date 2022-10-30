@@ -1,6 +1,6 @@
 import React, {memo} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {Route, Routes} from "react-router-dom";
+import {Route, Routes, useLocation, useNavigate} from "react-router-dom";
 
 import app from './app.module.css';
 import AppHeader from "../appHeader/appHeader";
@@ -20,12 +20,13 @@ import {ProtectedRoute} from "../protected-route/protected-route";
 
 
 function App() {
-
     // Состояние
     const dispatch = useDispatch()
+    const location = useLocation()
+    const history = useNavigate()
 
     const orderDetails = useSelector(store => store.order.orderModalOpen)
-    const ingredientDetails = useSelector(store => store.ingredients.ingredientModalOpen)
+    const ingredientDetailsModal = useSelector(store => store.ingredients.ingredientModalOpen)
 
     //Коллбэки
 
@@ -43,11 +44,17 @@ function App() {
         dispatch({type: CLEAR_ORDER_NUMBER});
     }, [dispatch]);
 
+    const goBack = () => {
+        history(-1)
+    }
+
+    const background = location.state?.background
+
 
     return (
         <div className={app.app} tabIndex={0}>
             <AppHeader/>
-            <Routes>
+            <Routes location={background || location}>
                 <Route path="/" element={<MainSection/>}/>
                 <Route path="/login" element={<Login/>}/>
                 <Route path="/register" element={<Register/>}/>
@@ -56,11 +63,16 @@ function App() {
                 <Route path="profile" element={<ProtectedRoute path={'login'}>
                     <Profile/>
                 </ProtectedRoute>}/>
+                <Route path="ingredients/:id" element={<IngredientDetails/>}/>
             </Routes>
-            {ingredientDetails && (
-                <Modal title={'Детали ингридиента'} onClose={closeAllPopups} isOpen={ingredientDetails}>
-                    <IngredientDetails card={''}/>
-                </Modal>
+            {background && (
+                <Routes>
+                    <Route path="ingredients/:id" element={
+                        <Modal title={'Детали ингридиента'} onClose={goBack} isOpen={ingredientDetailsModal}>
+                            <IngredientDetails/>
+                        </Modal>
+                    }/>
+                </Routes>
             )}
             {orderDetails && (
                 <Modal title={''} onClose={closeAllPopups} isOpen={orderDetails}>

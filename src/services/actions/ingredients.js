@@ -23,6 +23,8 @@ export function getItems() {
     fetchIngredients()
       .then((res) => {
         if (res && res.success) {
+          !localStorage.ingredients &&
+          localStorage.setItem('ingredients', JSON.stringify(res.data));
           dispatch({
             type: GET_DATA_SUCCESS,
             items: res.data,

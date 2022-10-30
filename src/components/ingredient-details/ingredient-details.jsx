@@ -2,11 +2,14 @@ import React from 'react';
 // import {dataPropTypes} from '../../utils/constants';
 import style from './ingredient-details.module.css';
 import {useSelector} from "react-redux";
+import {useParams} from "react-router-dom";
 // import PropTypes from "prop-types";
 
 
 function IngredientDetails() {
-    const card = useSelector(store => store.ingredients.viewedIngredient)
+    const {id} = useParams()
+    const card = useSelector(store => store.ingredients.viewedIngredient) ||
+        JSON.parse(localStorage.getItem('ingredients')).find((i) => i._id === id);
     return (
         card && (
                 <section className={style.section}>

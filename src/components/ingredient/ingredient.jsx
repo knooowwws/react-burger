@@ -34,15 +34,15 @@ function Ingredient({card}) {
     }
 
     return (
-        <li draggable={true} onClick={handleCardClick} ref={drag} style={{opacity}} className={`mb-10 ${ingredient.li}`}>
+        <div draggable={true} onClick={handleCardClick} ref={drag} style={{opacity}} className={`mb-10 ${ingredient.li}`}>
             <img src={card.image} alt={card.name}/>
             {countIngredient ? <Counter count={countIngredient} size='default'/> : null}
             <div className={ingredient.box}>
-                <span className='text text_type_digits-default'>{card.price}</span>
+                <span className={`text text_type_digits-default ${ingredient.span}`}>{card.price}</span>
                 <CurrencyIcon type='primary'/>
             </div>
-            <p className={`text text_type_main-default`}>{card.name}</p>
-        </li>
+            <p className={`text text_type_main-default ${ingredient.text}`}>{card.name}</p>
+        </div>
     )
 }
 

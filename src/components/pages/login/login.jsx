@@ -26,8 +26,7 @@ export const Login = () => {
         <>
             {(token && !logoutRequest) ? (
                 <Routes>
-                    <Route path="/" element={<Navigate to={location.state?.from || '/'} replace/>}
-                    />
+                    <Route path="/" element={<Navigate to={location.state?.from || '/'} replace/>}/>
                 </Routes>
             ) : (
                 <section className={style.container}>

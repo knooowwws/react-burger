@@ -12,7 +12,7 @@ export const ProtectedRoute = ({children, path}) => {
         if (refreshToken) {
             dispatch(getNewAccessToken())
         }
-    }, [dispatch, refreshToken])
+    }, [])
 
     if (!refreshToken) {
         return <Navigate to={`/${path}`} state={{from: location}} />

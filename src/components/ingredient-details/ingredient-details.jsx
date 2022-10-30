@@ -5,7 +5,7 @@ import {useSelector} from "react-redux";
 // import PropTypes from "prop-types";
 
 
-function IngredientDetails(props) {
+function IngredientDetails() {
     const card = useSelector(store => store.ingredients.viewedIngredient)
     return (
         card && (

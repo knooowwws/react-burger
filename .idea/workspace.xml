@@ -6,6 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="7e820f6c-ee3c-4564-9852-673d84bace63" name="Default Changelist" comment="reset_complete">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/app/app.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/app/app.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/burger-constructor/burger-constructor.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/burger-constructor/burger-constructor.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ingredient-details/ingredient-details.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ingredient-details/ingredient-details.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/login/login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/login/login.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/profile/profile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/profile/profile.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/register/register.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/register/register.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/reset-password/reset-password.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/reset-password/reset-password.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/profile-user-info/profile-user-info.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/profile-user-info/profile-user-info.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/protected-route/protected-route.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/protected-route/protected-route.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/actions/auth.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/actions/auth.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/functions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/functions.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -126,7 +136,9 @@
       <workItem from="1665309943188" duration="15000" />
       <workItem from="1665309968628" duration="614000" />
       <workItem from="1665912311099" duration="13758000" />
-      <workItem from="1666507989745" duration="33971000" />
+      <workItem from="1666507989745" duration="36836000" />
+      <workItem from="1667047724813" duration="4744000" />
+      <workItem from="1667076738636" duration="11811000" />
     </task>
     <task id="LOCAL-00001" summary="Login_complete">
       <created>1650680282225</created>

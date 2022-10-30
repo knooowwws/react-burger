@@ -28,7 +28,7 @@ export const Register = () => {
 
     return (
         <>
-            {(token && !logoutRequest) ? (
+            {(token) ? (
                 <Routes>
                     <Route path="/" element={<Navigate to={location.state?.from || '/'} replace/>}/>
                 </Routes>

@@ -39,6 +39,7 @@ export const getNewAccessToken = () => {
                 getTokens(res);
                 if (res && res.success) {
                     dispatch({ type: 'TOKEN_SUCCESS' });
+                    getUserProfile()
                 } else {
                     dispatch({ type: 'TOKEN_ERROR' });
                 }
@@ -56,13 +57,7 @@ export const updateUserProfile = ({ name, email, password }) => {
     return function (dispatch) {
         dispatch({ type: 'USER_UPDATE_REQUEST' });
         updateUserInfo({ name, email, password })
-            .then((res) => {
-                if (res && res.success) {
-                    dispatch({ type: 'USER_UPDATE_SUCCESS', data: res });
-                } else {
-                    dispatch({ type: 'USER_UPDATE_ERROR' });
-                }
-            })
+            .then((res) => dispatch({ type: 'USER_UPDATE_SUCCESS', data: res }))
             .catch((err) => {
                 if (
                     err.message === 'jwt expired' ||

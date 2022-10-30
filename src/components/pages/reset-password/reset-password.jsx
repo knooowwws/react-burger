@@ -32,9 +32,9 @@ export const ResetPassword = () => {
 
     return (
         <>
-            {(!isResetPassword && token) ? (
+            {(token) ? (
                 <Routes>
-                    <Route path="/forgot-password" element={<Navigate to={location.state?.from || '/'} replace/>}/>
+                    <Route path="/" element={<Navigate to={location.state?.from || '/'} replace/>}/>
                 </Routes>
             ) : (
                 <section className={style.container}>

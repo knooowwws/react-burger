@@ -26,7 +26,10 @@ export const ProfileUserInfo = () => {
     const passwordRef = useRef(null);
 
     const handleChange = (e) => {
-        setInputValue({ ...inputValue, [e.target.name]: e.target.value });
+        const target = e.target;
+        const name = target.name;
+        const value = target.value;
+        setInputValue({ ...inputValue, [name]: value });
     };
 
     const handleSubmit = (e) => {
@@ -41,6 +44,7 @@ export const ProfileUserInfo = () => {
     };
 
     useEffect(() => {
+        // console.log(name)
         setInputValue((inputValue) => {
             return { ...inputValue, name: name, email: email };
         });
